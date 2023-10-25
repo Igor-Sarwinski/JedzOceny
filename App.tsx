@@ -2,45 +2,14 @@ import {config} from '@gluestack-ui/config';
 import {Box, Button, ButtonText, GluestackUIProvider, Text} from '@gluestack-ui/themed';
 import {DefaultTheme, NavigationContainer,DarkTheme} from '@react-navigation/native';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
-// @ts-ignore
 import Icon from 'react-native-vector-icons/FontAwesome';
 import {useColorScheme} from "react-native";
-
-
-const HomeScreen = () => (
-    <Box flex={1} justifyContent="center" alignItems="center">
-        <Text>Strona główna</Text>
-            <Button
-                sx={{
-                    bg: '$red400',
-                }}>
-                <ButtonText>Hello world</ButtonText>
-            </Button>
-    </Box>
-);
-
-const DocsScreen = () => (
-    <Box flex={1} justifyContent="center" alignItems="center">
-        <Text>Dokumentacja</Text>
-    </Box>
-);
-
-const LearnScreen = () => (
-    <Box flex={1} justifyContent="center" alignItems="center">
-        <Text>Nauka</Text>
-    </Box>
-);
-
-const DeployScreen = () => (
-    <Box flex={1} justifyContent="center" alignItems="center">
-        <Text>Wdrożenie</Text>
-    </Box>
-
-);
-
-const Tab = createBottomTabNavigator();
-
+import Home from './pages/Home'
+import Places from './pages/Places'
+import Profile from './pages/Profile'
+import Reviews from './pages/Reviews'
 const App = () => {
+    const Tab = createBottomTabNavigator();
     const scheme = useColorScheme();
     return (
         <GluestackUIProvider config={config}>
@@ -48,7 +17,7 @@ const App = () => {
                 <Tab.Navigator>
                     <Tab.Screen
                         name="Home"
-                        component={HomeScreen}
+                        component={Home}
                         options={{
                             title: 'Strona główna',
                             tabBarIcon: ({color, size}) => (
@@ -57,52 +26,32 @@ const App = () => {
                         }}
                     />
                     <Tab.Screen
-                        name="Docs"
-                        component={DocsScreen}
+                        name="Places"
+                        component={Places}
                         options={{
-                            title: 'Dokumentacja',
+                            title: 'Restauracje',
                             tabBarIcon: ({color, size}) => (
-                                <Icon name="book" color={color} size={size}/>
+                                <Icon name="list" color={color} size={size}/>
                             ),
                         }}
                     />
                     <Tab.Screen
-                        name="Learn"
-                        component={LearnScreen}
+                        name="Reviews"
+                        component={Reviews}
                         options={{
-                            title: 'Nauka',
+                            title: 'Recenzje',
                             tabBarIcon: ({color, size}) => (
-                                <Icon name="graduation-cap" color={color} size={size}/>
+                                <Icon name="comments" color={color} size={size}/>
                             ),
                         }}
                     />
                     <Tab.Screen
-                        name="Deploy"
-                        component={DeployScreen}
+                        name="Profile"
+                        component={Profile}
                         options={{
-                            title: 'Wdrożenie',
+                            title: 'Profil',
                             tabBarIcon: ({color, size}) => (
-                                <Icon name="rocket" color={color} size={size}/>
-                            ),
-                        }}
-                    />
-                    <Tab.Screen
-                        name="Deplosy"
-                        component={DeployScreen}
-                        options={{
-                            title: 'Wdrssożenie',
-                            tabBarIcon: ({color, size}) => (
-                                <Icon name="rocket" color={color} size={size}/>
-                            ),
-                        }}
-                    />
-                    <Tab.Screen
-                        name="Deplo2y"
-                        component={DeployScreen}
-                        options={{
-                            title: 'Wdrożeni2e',
-                            tabBarIcon: ({color, size}) => (
-                                <Icon name="rocket" color={color} size={size}/>
+                                <Icon name="user" color={color} size={size}/>
                             ),
                         }}
                     />
