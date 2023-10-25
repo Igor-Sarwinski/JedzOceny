@@ -13,6 +13,8 @@
     "@gluestack-style/react": "latest",
     "@gluestack-ui/themed": "latest",
     "@legendapp/motion": "latest",
+    "@react-navigation/bottom-tabs": "^6.5.11",
+    "@react-navigation/native": "^6.1.9",
     "expo": "^49.0.0",
     "expo-status-bar": "~1.6.0",
     "react": "18.2.0",
