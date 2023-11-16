@@ -1,13 +1,65 @@
 import React from 'react';
-import { Box, Button, ButtonText, Text } from '@gluestack-ui/themed';
+import { Box, Text, Image,View } from '@gluestack-ui/themed';
+import {config} from '../config/gluestack-ui.config'
+import {Animated} from "react-native";
+import FlatList = Animated.FlatList;
+const { colors } = config.tokens;
 
+const restaurantData = [
+    { name: 'Astana       ', value: 3.5, logo: require('../img/users/user1.png') },
+    { name: 'Restauracja B', value: 2.75, logo: require('../img/users/user1.png') },
+    { name: 'Restauracja C', value: 1.0, logo: require('../img/users/user1.png') },
+    { name: 'Astana       ', value: 3.5, logo: require('../img/users/user1.png') },
+    { name: 'Restauracja B', value: 4.75, logo: require('../img/users/user1.png') },
+    { name: 'Restauracja C', value: 3.0, logo: require('../img/users/user1.png') },
+    { name: 'Astana       ', value: 1.5, logo: require('../img/users/user1.png') },
+    { name: 'Restauracja B', value: 2.75, logo: require('../img/users/user1.png') },
+];
+
+const renderItem = ({ item,index }) => (
+    <View style={{ flexDirection:'row' , justifyContent: 'center', alignItems: 'center'}}>
+        <View style={{marginLeft:25,marginRight:25, marginTop:10,  flex:1, flexDirection: 'row', alignItems: 'center', backgroundColor:'#505050' , borderWidth:2, borderColor:'#909090' ,borderRadius:5, justifyContent:'space-between'}}>
+           <View style={{ flexDirection:'row',width:150 }}>
+            <Text style={{ color:colors.white, marginLeft:10}}>{index +1}. </Text>
+            <Text style={{ color:colors.white}}>{item.name}</Text>
+           </View>
+            <Image source={item.logo} style={{ width: 33, height: 33, marginRight: 10 }} />
+            <Text style={{color:colors.white}}>{item.value.toFixed(1)}/5</Text>
+        </View>
+    </View>
+);
+
+const textStyles = {
+    maxWidth: 160,
+    fontSize:24,
+    marginLeft: 25,
+    color: colors.white,
+    marginRight:25,
+};
 const Home = () => (
-    <Box flex={1} justifyContent="center" alignItems="center">
-        <Text>Strona główna</Text>
-        <Button>
-            <ButtonText>Hello world</ButtonText>
-        </Button>
-    </Box>
+    <View flex={1}>
+        <View marginTop={25} backgroundColor={colors.background} height={170} borderRadius={40} flexWrap={'wrap'} alignItems={'center'} justifyContent={'center'} >
+            {/* Imie pobierane z konta */}
+            <Text style={textStyles}>Cześć Igor</Text>
+            {/* Miasto pobierane z lokalizacji */}
+            <Text style={textStyles}>Kielce</Text>
+            {/* Liczba opinii to zmienna pobierana*/}
+            <Text style={textStyles}>Liczba twoich opini to: 2137</Text>
+            <Image style={{height:135,width:120,marginLeft:90,borderRadius:30}} source={require('../img/users/user1.png')}></Image>
+        </View>
+        <View marginTop={15} backgroundColor={colors.background} height={440} borderRadius={40} >
+            <View alignItems={'center'}>
+                <Text style={{fontSize:24,color:colors.white, marginTop:25}}>Najlepiej oceniane</Text>
+            </View>
+            <View>
+                <FlatList
+                    data={restaurantData}
+                    renderItem={renderItem}
+                    keyExtractor={(item, index) => index.toString()}
+                />
+            </View>
+        </View>
+    </View>
 );
 
 export default Home
