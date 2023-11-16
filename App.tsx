@@ -1,6 +1,7 @@
 import * as React from 'react';
 import {DarkTheme, NavigationContainer} from '@react-navigation/native';
-import {config, GluestackUIProvider} from "@gluestack-ui/themed";
+import {config} from './config/gluestack-ui.config'
+import {GluestackUIProvider} from "@gluestack-ui/themed";
 import DrawerNavigation from "./navigation/DrawerNavigation";
 
 function App() {

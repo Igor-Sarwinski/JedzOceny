@@ -407,7 +407,6 @@ export const gluestackUIConfig = createConfig({
       backgroundLight800: '#404040',
       backgroundLight900: '#262626',
       backgroundLight950: '#171717',
-
       backgroundLightError: '#FEF1F1',
       backgroundDarkError: '#422B2B',
       backgroundLightWarning: '#FFF4EB',
@@ -418,8 +417,17 @@ export const gluestackUIConfig = createConfig({
       backgroundDarkInfo: '#1A282E',
       backgroundLightMuted: '#F6F6F7',
       backgroundDarkMuted: '#252526',
-      white: '#FFFFFF',
-      black: '#000000',
+
+
+
+      white: '#FFFFFF', //bilay
+      black: '#000000', //czarny
+      red: '#FF0000', //intenstywny czerwony - taby
+      grey: '#707070', //nieaktywne ikony, border do przyciskow i inputow
+      input: '#505050', //kolor inputow
+      button: '#900000', //wszystkiego rodzaju buttony
+      buttonBorder: '#600000', //kolor borderu buttona
+      background:'#202020',//tlo tresci itp
     },
     space: {
       'px': '1px',

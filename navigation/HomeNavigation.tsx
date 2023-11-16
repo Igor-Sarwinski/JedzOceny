@@ -6,22 +6,29 @@ import Places from '../pages/Places';
 import Profile from '../pages/Profile';
 import Reviews from '../pages/Reviews';
 import { useNavigation } from '@react-navigation/native';
+import { config } from '../config/gluestack-ui.config';
 
-
+const { colors } = config.tokens;
 const Tab = createBottomTabNavigator();
+
 const HomeNavigation = () => {
     const navigation = useNavigation();
 
     return (
-        <Tab.Navigator>
+        <Tab.Navigator
+            tabBarOptions={{
+                activeTintColor: colors.red,
+                inactiveTintColor: colors.backgroundDark600,
+            }}
+        >
             <Tab.Screen
                 name="Home"
                 component={Home}
                 options={{
-                    headerShown: false,
                     title: 'Strona główna',
-                    tabBarIcon: ({ color, size }) => (
-                        <Icon name="home" color={color} size={size} />
+                    headerShown:false,
+                    tabBarIcon: ({ color, size, focused }) => (
+                        <Icon name="home" color={focused ? colors.red : colors.grey} size={size} />
                     ),
                 }}
             />
@@ -29,16 +36,14 @@ const HomeNavigation = () => {
                 name="Places"
                 component={Places}
                 options={{
-                    headerShown: false,
                     title: 'Restauracje',
-                    tabBarIcon: ({ color, size }) => (
-                        <Icon name="list" color={color} size={size} />
+                    tabBarIcon: ({ color, size, focused }) => (
+                        <Icon name="list" color={focused ? colors.red : colors.grey} size={size} />
                     ),
                 }}
                 listeners={{
                     tabPress: e => {
-                        e.preventDefault(); // Zapobieganie domyślnej nawigacji na zakładkę
-                        // @ts-ignore
+                        e.preventDefault();
                         navigation.navigate('Restauracje');
                     },
                 }}
@@ -47,16 +52,14 @@ const HomeNavigation = () => {
                 name="Reviews"
                 component={Reviews}
                 options={{
-                    headerShown: false,
                     title: 'Recenzje',
-                    tabBarIcon: ({ color, size }) => (
-                        <Icon name="comments" color={color} size={size} />
+                    tabBarIcon: ({ color, size, focused }) => (
+                        <Icon name="comments" color={focused ? colors.red : colors.grey} size={size} />
                     ),
                 }}
                 listeners={{
                     tabPress: e => {
-                        e.preventDefault(); // Zapobieganie domyślnej nawigacji na zakładkę
-                        // @ts-ignore
+                        e.preventDefault();
                         navigation.navigate('Recenzje');
                     },
                 }}
@@ -65,16 +68,14 @@ const HomeNavigation = () => {
                 name="Profile"
                 component={Profile}
                 options={{
-                    headerShown: false,
                     title: 'Profil',
-                    tabBarIcon: ({ color, size }) => (
-                        <Icon name="user" color={color} size={size} />
+                    tabBarIcon: ({ color, size, focused }) => (
+                        <Icon name="user" color={focused ? colors.red : colors.grey} size={size} />
                     ),
                 }}
                 listeners={{
                     tabPress: e => {
-                        e.preventDefault(); // Zapobieganie domyślnej nawigacji na zakładkę
-                        // @ts-ignore
+                        e.preventDefault();
                         navigation.navigate('Profil');
                     },
                 }}

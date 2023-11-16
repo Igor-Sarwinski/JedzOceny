@@ -8,7 +8,9 @@ import Reviews from "../pages/Reviews";
 import Icon from 'react-native-vector-icons/FontAwesome';
 import {Image, View, Text, Button} from "react-native";
 let isLogged: boolean = true;
-
+import {config} from '../config/gluestack-ui.config'
+const { colors } = config.tokens;
+const Drawer = createDrawerNavigator();
 const routes = [
     {
         name: "Strona główna",
@@ -26,14 +28,19 @@ const routes = [
         icon: "comments",
     },
     {
-        name: "Login",
-        screen: HomeNavigation,
-        icon: "arrow-right",
-    },
-    {
         name: "Profil",
         screen: Profile,
         icon: "id-card",
+    },
+    {
+        name: "FAQ",
+        screen: HomeNavigation,
+        icon: "book",
+    },
+    {
+        name: "Statystyki",
+        screen: HomeNavigation,
+        icon: "signal",
     },
     {
         name: "Wyloguj się",
@@ -54,27 +61,35 @@ function CustomDrawerContent(props: any) {
 
     return (
         <DrawerContentScrollView {...props}>
-            <CustomDrawerLogo logo={require('../img/logo.png')} />
-            {routes.map((route, index) => (
-                <DrawerItem
-                    key={index}
-                    label={route.name}
-                    focused={currentRouteName === route.name} // Ustal, czy element jest zaznaczony
-                    onPress={() => props.navigation.navigate(route.name)}
-                    icon={({ focused }) => ( // Użyj przekazanego propa focused
-                        <Icon
-                            name={route.icon}
-                            color={focused ? 'red' : 'grey'} // Ustaw kolor ikonki na czerwony, gdy element jest zaznaczony
-                            size={28}
-                        />
-                    )}
-                />
-            ))}
+            <CustomDrawerLogo logo={require('../img/logo.png')}/>
+            {routes.map((route, index) => {
+                const isRouteFocused = currentRouteName === route.name;
+
+                return (
+                    <DrawerItem
+                        key={index}
+                        label={route.name}
+                        focused={isRouteFocused}
+                        onPress={() => props.navigation.navigate(route.name)}
+                        icon={({focused}) => (
+                            <Icon
+                                name={route.icon}
+                                color={focused ? colors.red : colors.grey}
+                                size={28}
+                                style={{flexDirection: 'row', alignItems: 'center', justifyContent: 'center',}}
+                            />
+                        )}
+                        activeBackgroundColor={'#FF000030'}
+                        labelStyle={{
+                            textAlign: 'left',
+                            color: isRouteFocused ? colors.red : colors.grey,
+                        }}
+                    />
+                );
+            })}
         </DrawerContentScrollView>
     );
 }
-const Drawer = createDrawerNavigator();
-const colorValue = '#555'; // TEST KOLOR
 
 // @ts-ignore
 const DrawerNavigation = () => {
@@ -86,7 +101,7 @@ const DrawerNavigation = () => {
                     drawerIcon: ({ focused, color, size }) => (
                         <Icon
                             name={route.icon}
-                            color={focused ? 'red' : 'white'}
+                            color={focused ? colors.red : colors.grey}
                             size={size}
                         />
                     ),
