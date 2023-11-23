@@ -10,6 +10,7 @@ import {Image, View, Text, Button} from "react-native";
 let isLogged: boolean = true;
 import {config} from '../config/gluestack-ui.config'
 const { colors } = config.tokens;
+import PlacesNavigation from "../navigation/PlacesNavigation"
 const Drawer = createDrawerNavigator();
 const routes = [
     {
@@ -19,11 +20,11 @@ const routes = [
     },
     {
         name: "Restauracje",
-        screen: Places,
+        screen: PlacesNavigation,
         icon: "list",
     },
     {
-        name: "Recenzje",
+        name: "Opinie",
         screen: Reviews,
         icon: "comments",
     },
@@ -52,7 +53,7 @@ const routes = [
 function CustomDrawerLogo({ logo}:{logo:any}) {
     return (
         <View style={{ alignItems: 'center', marginVertical: 20 }}>
-            <Image style={{height:175,width:160}} source={logo} />
+            <Image alt={'logo'} style={{height:175,width:160}} source={logo} />
         </View>
     );
 }
@@ -73,6 +74,7 @@ function CustomDrawerContent(props: any) {
                         onPress={() => props.navigation.navigate(route.name)}
                         icon={({focused}) => (
                             <Icon
+                                // @ts-ignore
                                 name={route.icon}
                                 color={focused ? colors.red : colors.grey}
                                 size={28}
@@ -93,6 +95,7 @@ function CustomDrawerContent(props: any) {
 
 // @ts-ignore
 const DrawerNavigation = () => {
+
     return (
         <Drawer.Navigator initialRouteName="Strona główna" drawerContent={props => <CustomDrawerContent {...props} />}>
             {routes.map((route, index) => (
@@ -100,6 +103,7 @@ const DrawerNavigation = () => {
                     drawerLabel: route.name,
                     drawerIcon: ({ focused, color, size }) => (
                         <Icon
+                            // @ts-ignore
                             name={route.icon}
                             color={focused ? colors.red : colors.grey}
                             size={size}

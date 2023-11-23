@@ -5,8 +5,10 @@ import Home from "../pages/Home";
 import Places from '../pages/Places';
 import Profile from '../pages/Profile';
 import Reviews from '../pages/Reviews';
+import PlacesNavigation from "../navigation/PlacesNavigation"
 import { useNavigation } from '@react-navigation/native';
 import { config } from '../config/gluestack-ui.config';
+import {initialize} from "react-native-gesture-handler/lib/typescript/init";
 
 const { colors } = config.tokens;
 const Tab = createBottomTabNavigator();
@@ -14,8 +16,10 @@ const Tab = createBottomTabNavigator();
 const HomeNavigation = () => {
     const navigation = useNavigation();
 
+
     return (
         <Tab.Navigator
+            // @ts-ignore
             tabBarOptions={{
                 activeTintColor: colors.red,
                 inactiveTintColor: colors.backgroundDark600,
@@ -34,7 +38,8 @@ const HomeNavigation = () => {
             />
             <Tab.Screen
                 name="Places"
-                component={Places}
+                initialParams={{ initialTab: 'Places' }}
+                component={PlacesNavigation}
                 options={{
                     title: 'Restauracje',
                     tabBarIcon: ({ color, size, focused }) => (
@@ -44,7 +49,8 @@ const HomeNavigation = () => {
                 listeners={{
                     tabPress: e => {
                         e.preventDefault();
-                        navigation.navigate('Restauracje');
+                        // @ts-ignore
+                        navigation.navigate('Restauracje',{ screen: 'Places' });
                     },
                 }}
             />
@@ -52,7 +58,7 @@ const HomeNavigation = () => {
                 name="Reviews"
                 component={Reviews}
                 options={{
-                    title: 'Recenzje',
+                    title: 'Opinie',
                     tabBarIcon: ({ color, size, focused }) => (
                         <Icon name="comments" color={focused ? colors.red : colors.grey} size={size} />
                     ),
@@ -60,7 +66,8 @@ const HomeNavigation = () => {
                 listeners={{
                     tabPress: e => {
                         e.preventDefault();
-                        navigation.navigate('Recenzje');
+                        // @ts-ignore
+                        navigation.navigate('Opinie');
                     },
                 }}
             />
@@ -76,6 +83,7 @@ const HomeNavigation = () => {
                 listeners={{
                     tabPress: e => {
                         e.preventDefault();
+                        // @ts-ignore
                         navigation.navigate('Profil');
                     },
                 }}

@@ -428,6 +428,7 @@ export const gluestackUIConfig = createConfig({
       button: '#900000', //wszystkiego rodzaju buttony
       buttonBorder: '#600000', //kolor borderu buttona
       background:'#202020',//tlo tresci itp
+      border:'#909090',
     },
     space: {
       'px': '1px',
