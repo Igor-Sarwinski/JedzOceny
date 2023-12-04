@@ -1,7 +1,7 @@
 import React from 'react';
 import { Box, Text } from '@gluestack-ui/themed';
 
-const Reviews = () => (
+export const Reviews = ({navigation}:any) => (
     <Box flex={1} justifyContent="center" alignItems="center">
         <Text>Recenzje</Text>
     </Box>

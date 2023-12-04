@@ -1,16 +1,18 @@
 import {createDrawerNavigator, DrawerContentScrollView, DrawerItem} from '@react-navigation/drawer';
-import Home from "../pages/Home";
-import Places from '../pages/Places';
-import Profile from '../pages/Profile';
+import Home from "../views/Home/Home";
+import Places from '../views/Places/Places';
+import Profile from '../views/Profile/Profile';
 import React from "react";
-import HomeNavigation from "../navigation/HomeNavigation";
-import Reviews from "../pages/Reviews";
+import {HomeNavigation , PlacesNavigation} from "./BottomNavigation";
+import Reviews from "../views/Reviews/Reviews";
 import Icon from 'react-native-vector-icons/FontAwesome';
 import {Image, View, Text, Button} from "react-native";
 let isLogged: boolean = true;
-import {config} from '../config/gluestack-ui.config'
+import {config} from '../../config/gluestack-ui.config'
+import {FAQ, Stats} from "../views";
+import Login from "../views/Login/Login";
+import {StackNavigation} from "./StackNavigation";
 const { colors } = config.tokens;
-import PlacesNavigation from "../navigation/PlacesNavigation"
 const Drawer = createDrawerNavigator();
 const routes = [
     {
@@ -35,17 +37,17 @@ const routes = [
     },
     {
         name: "FAQ",
-        screen: HomeNavigation,
+        screen: FAQ,
         icon: "book",
     },
     {
         name: "Statystyki",
-        screen: HomeNavigation,
+        screen: Stats,
         icon: "signal",
     },
     {
         name: "Wyloguj się",
-        screen: Profile,
+        screen: Login,
         icon: null,
     },
 ];
@@ -94,7 +96,7 @@ function CustomDrawerContent(props: any) {
 }
 
 // @ts-ignore
-const DrawerNavigation = () => {
+export const DrawerNavigation = ({navigation}:any) => {
 
     return (
         <Drawer.Navigator initialRouteName="Strona główna" drawerContent={props => <CustomDrawerContent {...props} />}>

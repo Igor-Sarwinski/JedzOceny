@@ -1,23 +1,23 @@
 import React from 'react';
 import { Box, Text, Image,View } from '@gluestack-ui/themed';
-import {config} from '../config/gluestack-ui.config'
-import {Animated} from "react-native";
+import {config} from '../../../config/gluestack-ui.config'
+import {Animated, Pressable} from "react-native";
 import FlatList = Animated.FlatList;
 const { colors } = config.tokens;
 
 const restaurantData = [
-    { name: 'Astana', value: 3.5, logo: require('../img/users/user1.png') },
-    { name: 'Restauracja B', value: 2.75, logo: require('../img/users/user1.png') },
-    { name: 'Restauracja C', value: 1.0, logo: require('../img/users/user1.png') },
-    { name: 'Astana', value: 3.5, logo: require('../img/users/user1.png') },
-    { name: 'Restssracja B', value: 4.75, logo: require('../img/users/user1.png') },
-    { name: 'Restauracja C', value: 3.0, logo: require('../img/users/user1.png') },
-    { name: 'Astana       ', value: 1.5, logo: require('../img/users/user1.png') },
-    { name: 'Restauracja B', value: 2.75, logo: require('../img/users/user1.png') },
+    { name: 'Astana', value: 3.5, logo: require('../../img/users/user1.png') },
+    { name: 'Restauracja B', value: 2.75, logo: require('../../img/users/user1.png') },
+    { name: 'Restauracja C', value: 1.0, logo: require('../../img/users/user1.png') },
+    { name: 'Astana', value: 3.5, logo: require('../../img/users/user1.png') },
+    { name: 'Restssracja B', value: 4.75, logo: require('../../img/users/user1.png') },
+    { name: 'Restauracja C', value: 3.0, logo: require('../../img/users/user1.png') },
+    { name: 'Astana       ', value: 1.5, logo: require('../../img/users/user1.png') },
+    { name: 'Restauracja B', value: 2.75, logo: require('../../img/users/user1.png') },
 ];
 // @ts-ignore
 const renderItem = ({ item,index }) => (
-    <View style={{ flexDirection:'row' , justifyContent: 'center', alignItems: 'center'}}>
+    <View  style={{ flexDirection:'row' , justifyContent: 'center', alignItems: 'center'}}>
         <View style={{marginLeft:25,marginRight:25,
             marginTop:10,  flex:1, flexDirection: 'row', alignItems: 'center',
             backgroundColor:colors.input , borderWidth:2, borderColor:colors.border,
@@ -39,7 +39,7 @@ const textStyles = {
     color: colors.white,
     marginRight:25,
 };
-const Home = () => (
+export const Home = ({navigation}:any) => (
     <View flex={1} marginVertical={15}>
         <View marginBottom={15} backgroundColor={colors.background} height={170} borderRadius={40} flexWrap={'wrap'} alignItems={'center'} justifyContent={'center'} >
             {/* Imie pobierane z konta */}
@@ -48,7 +48,7 @@ const Home = () => (
             <Text style={textStyles}>Kielce</Text>
             {/* Liczba opinii to zmienna pobierana*/}
             <Text style={textStyles}>Liczba twoich opini to: 2137</Text>
-            <Image alt={'logo'} style={{height:135,width:120,marginLeft:90,borderRadius:30}} source={require('../img/users/user1.png')}></Image>
+            <Image alt={'logo'} style={{height:135,width:120,marginLeft:90,borderRadius:30}} source={require('../../img/users/user1.png')}></Image>
         </View>
         <View backgroundColor={colors.background} flex={1} borderRadius={40} >
             <View alignItems={'center'}>
