@@ -6,6 +6,7 @@ import Places from '../views/Places/Places';
 import Profile from '../views/Profile/Profile';
 import Reviews from '../views/Reviews/Reviews';
 import { config } from '../../config/gluestack-ui.config';
+import {FAQ} from "../views";
 
 const { colors } = config.tokens;
 const Tab = createBottomTabNavigator();
@@ -89,8 +90,7 @@ export function HomeNavigation ({navigation})  {
     );
 }
 
-// @ts-ignore
-export const PlacesNavigation = ({navigation}) => {
+export const PlacesNavigation = ({navigation}:any) => {
 
 
     return (
@@ -117,12 +117,52 @@ export const PlacesNavigation = ({navigation}) => {
                 }}
             />
             <Tab.Screen
-                name="Places"
-                component={Places}
-                initialParams={{ initialTab: 'Places' }}
+                name="FAQ"
+                component={FAQ}
+                initialParams={{ initialTab: 'FAQ' }}
                 options={{
                     headerShown:false,
-                    title: 'Restauracje',
+                    title: 'FAQ',
+                    tabBarIcon: ({ color, size, focused }) => (
+                        <Icon name="list" color={focused ? colors.red : colors.grey} size={size} />
+                    ),
+                }}
+            />
+        </Tab.Navigator>
+    );
+};
+
+export const FAQNavigation = ({navigation}:any) => {
+    return (
+        <Tab.Navigator
+            // @ts-ignore
+            screenOptions={tabOptions}
+        >
+            <Tab.Screen
+                name="Home"
+                component={Home}
+                options={{
+                    title: 'Strona główna',
+                    headerShown:false,
+                    tabBarIcon: ({ color, size, focused }) => (
+                        <Icon name="home" color={focused ? colors.red : colors.grey} size={size} />
+                    ),
+                }}
+                listeners={{
+                    tabPress: e => {
+                        e.preventDefault();
+                        // @ts-ignore
+                        navigation.navigate('Strona główna');
+                    },
+                }}
+            />
+            <Tab.Screen
+                name="FAQ"
+                component={FAQ}
+                initialParams={{ initialTab: 'FAQ' }}
+                options={{
+                    headerShown:false,
+                    title: 'FAQ',
                     tabBarIcon: ({ color, size, focused }) => (
                         <Icon name="list" color={focused ? colors.red : colors.grey} size={size} />
                     ),

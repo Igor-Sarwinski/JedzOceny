@@ -6,14 +6,14 @@ import FlatList = Animated.FlatList;
 const { colors } = config.tokens;
 
 const restaurantData = [
-    { name: 'Astana', value: 3.5, logo: require('../../img/users/user1.png') },
-    { name: 'Restauracja B', value: 2.75, logo: require('../../img/users/user1.png') },
-    { name: 'Restauracja C', value: 1.0, logo: require('../../img/users/user1.png') },
-    { name: 'Astana', value: 3.5, logo: require('../../img/users/user1.png') },
-    { name: 'Restssracja B', value: 4.75, logo: require('../../img/users/user1.png') },
-    { name: 'Restauracja C', value: 3.0, logo: require('../../img/users/user1.png') },
-    { name: 'Astana       ', value: 1.5, logo: require('../../img/users/user1.png') },
-    { name: 'Restauracja B', value: 2.75, logo: require('../../img/users/user1.png') },
+    { name: 'Astana', value: 3.5, logo: require('../../assets/users/user1.png') },
+    { name: 'Restauracja B', value: 2.75, logo: require('../../assets/users/user1.png') },
+    { name: 'Restauracja C', value: 1.0, logo: require('../../assets/users/user1.png') },
+    { name: 'Astana', value: 3.5, logo: require('../../assets/users/user1.png') },
+    { name: 'Restssracja B', value: 4.75, logo: require('../../assets/users/user1.png') },
+    { name: 'Restauracja C', value: 3.0, logo: require('../../assets/users/user1.png') },
+    { name: 'Astana       ', value: 1.5, logo: require('../../assets/users/user1.png') },
+    { name: 'Restauracja B', value: 2.75, logo: require('../../assets/users/user1.png') },
 ];
 // @ts-ignore
 const renderItem = ({ item,index }) => (
@@ -48,7 +48,7 @@ export const Home = ({navigation}:any) => (
             <Text style={textStyles}>Kielce</Text>
             {/* Liczba opinii to zmienna pobierana*/}
             <Text style={textStyles}>Liczba twoich opini to: 2137</Text>
-            <Image alt={'logo'} style={{height:135,width:120,marginLeft:90,borderRadius:30}} source={require('../../img/users/user1.png')}></Image>
+            <Image alt={'logo'} style={{height:135,width:120,marginLeft:90,borderRadius:30}} source={require('../../assets/users/user1.png')}></Image>
         </View>
         <View backgroundColor={colors.background} flex={1} borderRadius={40} >
             <View alignItems={'center'}>

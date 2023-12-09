@@ -1,13 +1,11 @@
 import { createStackNavigator } from '@react-navigation/stack';
 
-import {Places, Profile, Stats} from "../views";
-import {HomeNavigation} from "./BottomNavigation";
+import {AddPlace, AddReview, EditReview, FAQ, Home, Places, Profile, Reviews, Stats} from "../views";
+import {FAQNavigation, HomeNavigation} from "./BottomNavigation";
 import DrawerNavigation from "./DrawerNavigation";
 import Login from "../views/Login/Login";
-import {Pressable,Text} from "react-native";
 import React from "react";
 const Stack = createStackNavigator();
-
 const defaultScreenOptions = {
     headerTintColor: 'white', // Ustaw kolor tekstu nagłówka
     headerBackTitle:'Wróć',
@@ -22,6 +20,11 @@ export function StackNavigation() {
             <Stack.Screen name="Places" component={Places} />
             <Stack.Screen name="Profile" component={Profile} />
             <Stack.Screen name="Stats" component={Stats} />
+            <Stack.Screen name="Reviews" component={Reviews} />
+            <Stack.Screen name="Dodaj opinię" component={AddReview} />
+            <Stack.Screen name="Dodaj restaurację" component={AddPlace} />
+            <Stack.Screen name="Edytuj opinię" component={EditReview} />
+            <Stack.Screen name="Home" component={Home} />
         </Stack.Navigator>
     );
 }

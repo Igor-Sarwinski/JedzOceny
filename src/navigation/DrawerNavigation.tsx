@@ -3,7 +3,7 @@ import Home from "../views/Home/Home";
 import Places from '../views/Places/Places';
 import Profile from '../views/Profile/Profile';
 import React from "react";
-import {HomeNavigation , PlacesNavigation} from "./BottomNavigation";
+import {FAQNavigation, HomeNavigation, PlacesNavigation} from "./BottomNavigation";
 import Reviews from "../views/Reviews/Reviews";
 import Icon from 'react-native-vector-icons/FontAwesome';
 import {Image, View, Text, Button} from "react-native";
@@ -34,10 +34,12 @@ const routes = [
         name: "Profil",
         screen: Profile,
         icon: "id-card",
+        initialTab: 'Profile',
+
     },
     {
         name: "FAQ",
-        screen: FAQ,
+        screen: FAQNavigation,
         icon: "book",
     },
     {
@@ -64,7 +66,7 @@ function CustomDrawerContent(props: any) {
 
     return (
         <DrawerContentScrollView {...props}>
-            <CustomDrawerLogo logo={require('../img/logo.png')}/>
+            <CustomDrawerLogo logo={require('../assets/logo.png')}/>
             {routes.map((route, index) => {
                 const isRouteFocused = currentRouteName === route.name;
 

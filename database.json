@@ -1,0 +1,11 @@
+{
+  "users": [
+    { "id": 1, "name": "igor", "surname": "admin","mail": "igor.s@onet.pl","password": "admin","reviews": 0 }
+  ],
+  "places": [
+    { "id": 1, "name": "Astana kebab", "city": "Kielce","street": "Paderewsiekigo 15","hours": "7-19", "tel": 660654234, "reviews": 1 }
+  ],
+  "reviews":[
+    { "id":1 ,"idUser":1 ,"idPlace": 1,"content": "ta knajpa jest zajebista", "score": 4.5 }
+  ]
+}
