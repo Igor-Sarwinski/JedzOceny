@@ -81,7 +81,7 @@ function CustomDrawerContent(props: any) {
                         key={index}
                         label={route.name}
                         focused={isRouteFocused}
-                        onPress={() => props.navigation.navigate(route.name,{ screen: route.name })}
+                        onPress={() => props.navigation.navigate(route.name,{ screen: route.screen })}
                         icon={({focused}) => (
                             <Icon
                                 // @ts-ignore
@@ -109,7 +109,7 @@ export const DrawerNavigation = ({navigation}:any) => {
     return (
         <Drawer.Navigator initialRouteName="Strona główna" drawerContent={props => <CustomDrawerContent {...props} />}>
             {routes.map((route, index) => (
-                <Drawer.Screen key={index} name={route.name} component={route.screen} options={{
+                <Drawer.Screen key={index}  name={route.name} component={route.screen} options={{
                     drawerLabel: route.name,
                     drawerIcon: ({ focused, color, size }) => (
                         <Icon
