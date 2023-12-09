@@ -20,7 +20,6 @@ export function StackNavigation() {
             <Stack.Screen name="Places" component={Places} />
             <Stack.Screen name="Profile" component={Profile} />
             <Stack.Screen name="Stats" component={Stats} />
-            <Stack.Screen name="Reviews" component={Reviews} />
             <Stack.Screen name="Dodaj opinię" component={AddReview} />
             <Stack.Screen name="Dodaj restaurację" component={AddPlace} />
             <Stack.Screen name="Edytuj opinię" component={EditReview} />

@@ -3,7 +3,13 @@ import Home from "../views/Home/Home";
 import Places from '../views/Places/Places';
 import Profile from '../views/Profile/Profile';
 import React from "react";
-import {HomeNavigation, PlacesNavigation} from "./BottomNavigation";
+import {
+    FAQNavigation,
+    HomeNavigation,
+    PlacesNavigation,
+    ProfileNavigation,
+    ReviewsNavigation, StatsNavigation
+} from "./BottomNavigation";
 import Reviews from "../views/Reviews/Reviews";
 import Icon from 'react-native-vector-icons/FontAwesome';
 import {Image, View, Text, Button} from "react-native";
@@ -27,24 +33,24 @@ const routes = [
     },
     {
         name: "Opinie",
-        screen: Reviews,
+        screen: ReviewsNavigation,
         icon: "comments",
     },
     {
         name: "Profil",
-        screen: Profile,
+        screen: ProfileNavigation,
         icon: "id-card",
         initialTab: 'Profile',
 
     },
     {
         name: "FAQ",
-        screen: FAQ,
+        screen: FAQNavigation,
         icon: "book",
     },
     {
         name: "Statystyki",
-        screen: Stats,
+        screen: StatsNavigation,
         icon: "signal",
     },
     {
@@ -75,14 +81,14 @@ function CustomDrawerContent(props: any) {
                         key={index}
                         label={route.name}
                         focused={isRouteFocused}
-                        onPress={() => props.navigation.navigate(route.name)}
+                        onPress={() => props.navigation.navigate(route.name,{ screen: route.name })}
                         icon={({focused}) => (
                             <Icon
                                 // @ts-ignore
                                 name={route.icon}
                                 color={focused ? colors.red : colors.grey}
                                 size={28}
-                                style={{flexDirection: 'row', alignItems: 'center', justifyContent: 'center',}}
+                                style={{flexDirection: 'row', alignItems: 'center', justifyContent: 'center', minWidth:"15%" }}
                             />
                         )}
                         activeBackgroundColor={'#FF000030'}
