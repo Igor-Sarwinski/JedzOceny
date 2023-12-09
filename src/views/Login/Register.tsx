@@ -31,7 +31,7 @@ export const Register = ({navigation}:any) => {
                     placeholder="Imię"
                     placeholderTextColor={'#fff'}
                     value={name}
-                    onChangeText={(text) => setEmail(text)}
+                    onChangeText={(text) => setName(text)}
                 />
                 <TextInput
                     style={styles.input}
@@ -39,7 +39,7 @@ export const Register = ({navigation}:any) => {
                     secureTextEntry
                     placeholderTextColor={'#fff'}
                     value={surname}
-                    onChangeText={(text) => setPassword(text)}
+                    onChangeText={(text) => setSurname(text)}
                 />
                 <TextInput
                     style={styles.input}
