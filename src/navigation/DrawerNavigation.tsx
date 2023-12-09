@@ -3,7 +3,7 @@ import Home from "../views/Home/Home";
 import Places from '../views/Places/Places';
 import Profile from '../views/Profile/Profile';
 import React from "react";
-import {FAQNavigation, HomeNavigation, PlacesNavigation} from "./BottomNavigation";
+import {HomeNavigation, PlacesNavigation} from "./BottomNavigation";
 import Reviews from "../views/Reviews/Reviews";
 import Icon from 'react-native-vector-icons/FontAwesome';
 import {Image, View, Text, Button} from "react-native";
@@ -39,7 +39,7 @@ const routes = [
     },
     {
         name: "FAQ",
-        screen: FAQNavigation,
+        screen: FAQ,
         icon: "book",
     },
     {

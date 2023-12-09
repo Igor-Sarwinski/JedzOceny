@@ -117,52 +117,12 @@ export const PlacesNavigation = ({navigation}:any) => {
                 }}
             />
             <Tab.Screen
-                name="FAQ"
-                component={FAQ}
-                initialParams={{ initialTab: 'FAQ' }}
+                name="Places"
+                component={Places}
+                initialParams={{ initialTab: 'Places' }}
                 options={{
                     headerShown:false,
-                    title: 'FAQ',
-                    tabBarIcon: ({ color, size, focused }) => (
-                        <Icon name="list" color={focused ? colors.red : colors.grey} size={size} />
-                    ),
-                }}
-            />
-        </Tab.Navigator>
-    );
-};
-
-export const FAQNavigation = ({navigation}:any) => {
-    return (
-        <Tab.Navigator
-            // @ts-ignore
-            screenOptions={tabOptions}
-        >
-            <Tab.Screen
-                name="Home"
-                component={Home}
-                options={{
-                    title: 'Strona główna',
-                    headerShown:false,
-                    tabBarIcon: ({ color, size, focused }) => (
-                        <Icon name="home" color={focused ? colors.red : colors.grey} size={size} />
-                    ),
-                }}
-                listeners={{
-                    tabPress: e => {
-                        e.preventDefault();
-                        // @ts-ignore
-                        navigation.navigate('Strona główna');
-                    },
-                }}
-            />
-            <Tab.Screen
-                name="FAQ"
-                component={FAQ}
-                initialParams={{ initialTab: 'FAQ' }}
-                options={{
-                    headerShown:false,
-                    title: 'FAQ',
+                    title: 'Restauracje',
                     tabBarIcon: ({ color, size, focused }) => (
                         <Icon name="list" color={focused ? colors.red : colors.grey} size={size} />
                     ),

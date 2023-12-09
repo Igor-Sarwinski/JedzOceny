@@ -1,7 +1,7 @@
 import { createStackNavigator } from '@react-navigation/stack';
 
 import {AddPlace, AddReview, EditReview, FAQ, Home, Places, Profile, Reviews, Stats} from "../views";
-import {FAQNavigation, HomeNavigation} from "./BottomNavigation";
+import {HomeNavigation} from "./BottomNavigation";
 import DrawerNavigation from "./DrawerNavigation";
 import Login from "../views/Login/Login";
 import React from "react";
