@@ -3,6 +3,16 @@ import {config} from "../../../config/gluestack-ui.config";
 const { colors } = config.tokens;
 
 export const styles = StyleSheet.create({
+    logo:{
+        width:133,
+        height:145,
+        alignSelf:'center',
+        marginTop:30,
+        marginBottom:20,
+        borderWidth:2,
+        borderColor:colors.white,
+        borderRadius:30
+    },
     search: {
         flex: 1,
         backgroundColor:colors.input,
@@ -51,5 +61,16 @@ export const styles = StyleSheet.create({
             borderWidth:2,
             borderColor:colors.white
         },
+    },
+    input: {
+        backgroundColor:colors.input,
+        color:colors.white,
+        borderColor: colors.border,
+        borderRadius:30,
+        marginTop:20,
+        borderWidth: 2,
+        minHeight:32,
+        minWidth:145,
+        paddingLeft:10,
     }
 })

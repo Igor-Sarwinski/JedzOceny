@@ -6,55 +6,65 @@ import FlatList = Animated.FlatList;
 import { styles } from './styles';
 const { colors } = config.tokens;
 // @ts-ignore
-const restaurantData = [
-    { name: 'Astana kebab', value: 3.5,reviews:150 , distance:1.4 , logo: require('../../assets/users/user1.png') },
-    { name: 'Restauracja B', value: 2.75, logo: require('../../assets/users/user1.png') },
-    { name: 'Restauracja C', value: 1.0, logo: require('../../assets/logo.png') },
-    { name: 'Astana', value: 3.5, logo: require('../../assets/users/user1.png') },
-    { name: 'Restssracja B', value: 4.75, logo: require('../../assets/users/user1.png') },
-    { name: 'Restauracja C', value: 3.0, logo: require('../../assets/logo.png') },
-    { name: 'Astana       ', value: 1.5, logo: require('../../assets/users/user1.png') },
-    { name: 'Restauracja B', value: 2.75, logo: require('../../assets/users/user1.png') },
-    { name: 'Astana', value: 3.5, logo: require('../../assets/logo.png') },
-    { name: 'Restauracja B', value: 2.75, logo: require('../../assets/users/user1.png') },
-    { name: 'Restauracja C', value: 1.0, logo: require('../../assets/users/user1.png') },
-    { name: 'Astana', value: 3.5, logo: require('../../assets/users/user1.png') },
-    { name: 'Restssracja B', value: 4.75, logo: require('../../assets/logo.png') },
-    { name: 'Restauracja C', value: 3.0, logo: require('../../assets/users/user1.png') },
-    { name: 'Astana       ', value: 1.5, logo: require('../../assets/users/user1.png') },
-    { name: 'Restauracja B', value: 2.75, logo: require('../../assets/users/user1.png') },
-];
+// const restaurantData = [
+//     { name: 'Astana kebab', value: 3.5,reviews:150 , distance:1.4 , logo: require('../../assets/users/user1.png') },
+//     { name: 'Restauracja B', value: 2.75, logo: require('../../assets/users/user1.png') },
+//     { name: 'Restauracja C', value: 1.0, logo: require('../../assets/logo.png') },
+//     { name: 'Astana', value: 3.5, logo: require('../../assets/users/user1.png') },
+//     { name: 'Restssracja B', value: 4.75, logo: require('../../assets/users/user1.png') },
+//     { name: 'Restauracja C', value: 3.0, logo: require('../../assets/logo.png') },
+//     { name: 'Astana       ', value: 1.5, logo: require('../../assets/users/user1.png') },
+//     { name: 'Restauracja B', value: 2.75, logo: require('../../assets/users/user1.png') },
+//     { name: 'Astana', value: 3.5, logo: require('../../assets/logo.png') },
+//     { name: 'Restauracja B', value: 2.75, logo: require('../../assets/users/user1.png') },
+//     { name: 'Restauracja C', value: 1.0, logo: require('../../assets/users/user1.png') },
+//     { name: 'Astana', value: 3.5, logo: require('../../assets/users/user1.png') },
+//     { name: 'Restssracja B', value: 4.75, logo: require('../../assets/logo.png') },
+//     { name: 'Restauracja C', value: 3.0, logo: require('../../assets/users/user1.png') },
+//     { name: 'Astana       ', value: 1.5, logo: require('../../assets/users/user1.png') },
+//     { name: 'Restauracja B', value: 2.75, logo: require('../../assets/users/user1.png') },
+// ];
 
 
 
 // @ts-ignore
-const renderItem = ({ item,index,navigation}) => (
-    <View  style={{ flexDirection:'row' , justifyContent: 'center', alignItems: 'center',marginTop:0}}>
-        <View style={styles.card}>
-            <View style={{width:'45%', marginLeft:'5%'}}>
-                <Image alt={'logo'} source={item.logo} style={styles.card.logo} />
-            </View>
-            <View style={{ flexDirection:'column', width:"40%",marginLeft:'3%' }}>
-                <View style={{marginLeft:10}}>
-                    <Text style={styles.text}>{item.name}</Text>
-                    <Text style={styles.text}>Ocena: {item.value} /5</Text>
-                    <Text style={styles.text}>Liczba opini: {item.reviews}</Text>
-                    <Text style={styles.text}>Do celu: {item.distance} km</Text>
+
+export const Places = ({navigation}:any) => {
+    const [list, setList] = useState([]);
+    const reviews = 1;
+    const value = 3;
+    const distance = 2;
+    const handleAddItem = (newItem: any) => {
+        // @ts-ignore
+        setList([...list, newItem]);
+    };
+    const renderItem = ({ item,index,navigation}:any) => (
+        <View  style={{ flexDirection:'row' , justifyContent: 'center', alignItems: 'center',marginTop:0}}>
+            <View style={styles.card}>
+                <View style={{width:'45%', marginLeft:'5%'}}>
+                   <Image alt={'logo'} source={require("../../assets/logo.png")} style={styles.card.logo} />
                 </View>
-                <Pressable style={styles.button} onPress={() => navigation.push('Dodaj opinię')}>
-                    <Text style={styles.button.text} >Dodaj opinię</Text>
-                </Pressable>
+                <View style={{ flexDirection:'column', width:"40%",marginLeft:'3%' }}>
+                    <View style={{marginLeft:10}}>
+                        <Text style={styles.text}>{item.name}</Text>
+                        <Text style={styles.text}>Ocena: {item.value} /5</Text>
+                        <Text style={styles.text}>Liczba opini: {item.reviews}</Text>
+                        <Text style={styles.text}>Do celu: {item.distance} km</Text>
+                    </View>
+                    <Pressable style={styles.button} onPress={() => navigation.push('Dodaj opinię')}>
+                        <Text style={styles.button.text} >Dodaj opinię</Text>
+                    </Pressable>
+                </View>
             </View>
         </View>
-    </View>
-);
-export const Places = ({navigation}:any) => {
+    );
+
     const [nazwa, setNazwa] = useState('');
 
     return (
         <Box flex={1} justifyContent="center" alignItems="center" marginVertical={15} borderRadius={55}
              backgroundColor={colors.background}>
-
+<Pressable>
             <View style={{flexDirection: 'row', alignItems: 'center', width:"90%"}}>
                 <TextInput
                     style={styles.search}
@@ -68,7 +78,7 @@ export const Places = ({navigation}:any) => {
                 />
                 <Pressable
                     style={styles.button}
-                    onPress={ () => navigation.push('Dodaj restaurację')}
+                    onPress={ () => navigation.push('Dodaj restaurację',{ addItem: handleAddItem })}
                 >
                     <Text style={styles.button.text}>Dodaj restauracje</Text>
                 </Pressable>
@@ -76,14 +86,14 @@ export const Places = ({navigation}:any) => {
             <ScrollView style={{marginTop:10,marginBottom:35}}>
                 <View>
                     <FlatList
-                        data={restaurantData}
+                        data={list}
                         renderItem={({ item, index }) => renderItem({ item, index, navigation })}
                         keyExtractor={(item, index) => index.toString()}
                     />
                 </View>
 
             </ScrollView>
-
+</Pressable>
         </Box>
     );
 };

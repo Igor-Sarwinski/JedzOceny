@@ -21,7 +21,7 @@ export const Register = ({navigation}:any) => {
     return (
         <Box flex={1} alignItems="center" marginVertical={15} borderRadius={55}
              backgroundColor={colors.background}>
-            <View>
+            <View style={{width:'60%'}}>
                 <Pressable onPress={()=> navigation.navigate("DrawerNavigation")}>
                     <Text style={styles.button.text}>Skip</Text>
                 </Pressable>
