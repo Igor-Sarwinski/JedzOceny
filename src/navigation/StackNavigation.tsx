@@ -1,9 +1,10 @@
 import { createStackNavigator } from '@react-navigation/stack';
 
-import {AddPlace, AddReview, EditReview, FAQ, Register, Home, Places, Profile, Reviews, Stats} from "../views";
+import {AddPlace, AddReview, EditReview, Register, Home, Places, Profile, Reviews, Stats} from "../views";
 import {HomeNavigation} from "./BottomNavigation";
 import DrawerNavigation from "./DrawerNavigation";
 import Login from "../views/Login/Login";
+import FAQ from "../views/FAQ/FAQ";
 import React from "react";
 const Stack = createStackNavigator();
 const defaultScreenOptions = {
@@ -27,6 +28,8 @@ export function StackNavigation() {
             <Stack.Screen name="Edytuj opinię" component={EditReview} />
             <Stack.Screen name="Home" component={Home} />
             <Stack.Screen name="Rejestracja" component={Register} />
+            <Stack.Screen name="FAQ" component={FAQ} />
+            
         </Stack.Navigator>
     );
 }

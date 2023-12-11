@@ -12,12 +12,8 @@ export const AddReview = ({ navigation, route }:any) => {
 
     const handleAddReview = () => {
 
-        // Dodawanie nowej pozycji do listy w ekranie Lista
-        //route.params.addItem({ value,description});
-
-        navigation.navigate('Reviews', { newItem: {value,description}  });
-        // Powrót do ekranu Listaa
-      //  navigation.goBack();
+        route.params.addItem({ value, description });
+        navigation.goBack();
     };
 
     return (
