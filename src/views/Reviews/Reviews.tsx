@@ -28,37 +28,47 @@ const restaurantData = [
 
 
 // @ts-ignore
-const renderItem = ({ item, index, navigation }) => (
-    <View key={index} style={{ flexDirection: 'column', justifyContent: 'center', alignItems: 'center', marginTop: 10 }}>
-        <View style={styles.card}>
-            <View style={{ flexDirection: 'row',flexWrap:'wrap' , alignItems: 'center', marginTop: 20 }}>
-                <View style={{ width: '45%', marginLeft: '5%' }}>
-                    <Image alt={'logo'} source={item.logo} style={styles.card.logo} />
-                </View>
-                <View style={{ flexDirection: 'column', width: "40%", marginLeft: '3%' }}>
-                    <View style={{ marginLeft: 10 }}>
-                        <Text style={styles.text}>{item.name}</Text>
-                        <Text style={styles.text}>Twoja ocena:</Text>
-                        <Text style={{ ...styles.text, alignSelf: 'center', fontWeight: 'bold' }}>{item.value}/5 </Text>
-                    </View>
-                    <Pressable style={styles.button} onPress={() => navigation.push('Edytuj opinię')}>
-                        <Text style={styles.button.text}>Edytuj</Text>
-                    </Pressable>
-                    <Pressable style={styles.button} onPress={() => navigation.push('Dodaj opinię')}>
-                        <Text style={styles.button.text}>Usuń</Text>
-                    </Pressable>
-                </View>
-            </View>
-            <View style={{ marginLeft:15,marginBottom:20, width: '90%'}}>
-                <Text style={styles.text}>{item.description}</Text>
-            </View>
-        </View>
-    </View>
-);
+
 
 
 
 export const Reviews = ({navigation}:any) => {
+    const [listReview, setListReview] = useState([]);
+    const reviews = 1;
+    const value = 3;
+    const distance = 2;
+    const handleAddReview = (newItem: any) => {
+        // @ts-ignore
+        setListReview([...listReview, newItem]);
+    };
+    const renderItem = ({ item, index, navigation }:any) => (
+        <View key={index} style={{ flexDirection: 'column', justifyContent: 'center', alignItems: 'center', marginTop: 10 }}>
+            <View style={styles.card}>
+                <View style={{ flexDirection: 'row',flexWrap:'wrap' , alignItems: 'center', marginTop: 20 }}>
+                    <View style={{ width: '45%', marginLeft: '5%' }}>
+                        <Image alt={'logo'} source={item.logo} style={styles.card.logo} />
+                    </View>
+                    <View style={{ flexDirection: 'column', width: "40%", marginLeft: '3%' }}>
+                        <View style={{ marginLeft: 10 }}>
+                            <Text style={styles.text}>Nazwa</Text>
+                            <Text style={styles.text}>Twoja ocena:</Text>
+                            <Text style={{ ...styles.text, alignSelf: 'center', fontWeight: 'bold' }}>{item.value}/5 </Text>
+                        </View>
+                        <Pressable style={styles.button} onPress={() => navigation.push('Edytuj opinię')}>
+                            <Text style={styles.button.text}>Edytuj</Text>
+                        </Pressable>
+                        <Pressable style={styles.button} onPress={() => navigation.push('Dodaj opinię')}>
+                            <Text style={styles.button.text}>Usuń</Text>
+                        </Pressable>
+                    </View>
+                </View>
+                <View style={{ marginLeft:15,marginBottom:20, width: '90%'}}>
+                    <Text style={styles.text}>{item.description}</Text>
+                </View>
+            </View>
+        </View>
+    );
+
     const [nazwa, setNazwa] = useState('');
 
     return (
@@ -80,7 +90,7 @@ export const Reviews = ({navigation}:any) => {
             <ScrollView style={{marginTop:10,marginBottom:35}}>
                 <View>
                     <FlatList
-                        data={restaurantData}
+                        data={listReview}
                         renderItem={({ item, index }) => renderItem({ item, index, navigation })}
                         keyExtractor={(item, index) => index.toString()}
 
