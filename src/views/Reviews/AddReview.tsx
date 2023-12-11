@@ -16,7 +16,7 @@ export const AddReview = ({ navigation, route }:any) => {
         //route.params.addItem({ value,description});
 
         navigation.navigate('Reviews', { newItem: {value,description}  });
-        // Powrót do ekranu Lista
+        // Powrót do ekranu Listaa
       //  navigation.goBack();
     };
 
