@@ -25,7 +25,7 @@ export const Stats = ({ navigation }: any) => {
             >
                 <Text style={styles.text}>Opinie: 2137</Text>
                 <Text style={styles.text}>Restauracje: 69</Text>
-                <Text style={styles.text}>Opinie: 1337</Text>
+                <Text style={styles.text}>Opinie: 13377</Text>
 
             </View>
 
