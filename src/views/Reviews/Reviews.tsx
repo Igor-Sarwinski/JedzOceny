@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {Box, Text, Pressable, InputField, Image} from '@gluestack-ui/themed';
 import {config} from "../../../config/gluestack-ui.config";
 import {Animated, Button, ScrollView, TextInput, View} from "react-native";
@@ -25,16 +25,23 @@ const { colors } = config.tokens;
 //     { name: 'Restauracja B', value: 2.75, logo: require('../../assets/users/user1.png') },
 // ];
 
-export const Reviews = ({navigation}:any) => {
+export const Reviews = ({navigation,route}:any) => {
     const [listReview, setListReview] = useState([]);
     const reviews = 1;
     const value = 3;
     const distance = 2;
+    useEffect(() => {
+        // Check if there's a new item passed as a parameter
+        const newItem = route.params?.newItem;
+        if (newItem) {
+            setListReview([...listReview, newItem]);
+        }
+    }, [route.params?.newItem]);
 
-    const handleAddReview = (newItem: any) => {
-        // @ts-ignore
-        setListReview([...listReview, newItem]);
-    };
+    // const handleAddReview = (newItem: any) => {
+    //     // @ts-ignore
+    //     setListReview([...listReview, newItem]);
+    // };
 
     const renderItem = ({ item, index, navigation }:any) => (
         <View key={index} style={{ flexDirection: 'column', justifyContent: 'center', alignItems: 'center', marginTop: 10 }}>

@@ -48,9 +48,9 @@ export const Places = ({navigation}:any) => {
                         <Text style={styles.text}>Liczba opini: {item.reviews}</Text>
                         <Text style={styles.text}>Do celu: {item.distance} km</Text>
                     </View>
-                    {/*<Pressable style={styles.button} onPress={() => navigation.push('Dodaj opinię')}>*/}
-                    {/*    <Text style={styles.button.text} >Dodaj opinię</Text>*/}
-                    {/*</Pressable>*/}
+                    <Pressable style={styles.button} onPress={() => navigation.push('Dodaj opinię')}>
+                        <Text style={styles.button.text} >Dodaj opinię</Text>
+                    </Pressable>
                 </View>
             </View>
         </View>
@@ -61,7 +61,6 @@ export const Places = ({navigation}:any) => {
     return (
         <Box flex={1} justifyContent="center" alignItems="center" marginVertical={15} borderRadius={55}
              backgroundColor={colors.background}>
-<Pressable>
             <View style={{flexDirection: 'row', alignItems: 'center', width:"90%"}}>
                 <TextInput
                     style={styles.search}
@@ -90,7 +89,6 @@ export const Places = ({navigation}:any) => {
                 </View>
 
             </ScrollView>
-</Pressable>
         </Box>
     );
 };

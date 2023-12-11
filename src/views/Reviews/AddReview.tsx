@@ -13,10 +13,11 @@ export const AddReview = ({ navigation, route }:any) => {
     const handleAddReview = () => {
 
         // Dodawanie nowej pozycji do listy w ekranie Lista
-        route.params.addItem({ value,description});
+        //route.params.addItem({ value,description});
 
+        navigation.navigate('Reviews', { newItem: {value,description}  });
         // Powrót do ekranu Lista
-        navigation.goBack();
+      //  navigation.goBack();
     };
 
     return (

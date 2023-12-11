@@ -10,14 +10,12 @@ import {
     ProfileNavigation,
     ReviewsNavigation, StatsNavigation
 } from "./BottomNavigation";
-import Reviews from "../views/Reviews/Reviews";
+
 import Icon from 'react-native-vector-icons/FontAwesome';
 import {Image, View, Text, Button} from "react-native";
 let isLogged: boolean = true;
 import {config} from '../../config/gluestack-ui.config'
-import {FAQ, Stats} from "../views";
 import Login from "../views/Login/Login";
-import {StackNavigation} from "./StackNavigation";
 const { colors } = config.tokens;
 const Drawer = createDrawerNavigator();
 const routes = [
