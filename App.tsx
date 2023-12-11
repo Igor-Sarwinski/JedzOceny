@@ -3,6 +3,7 @@ import {DarkTheme, NavigationContainer} from '@react-navigation/native';
 import {config} from './config/gluestack-ui.config'
 import {GluestackUIProvider} from "@gluestack-ui/themed";
 import {StackNavigation} from "./src/navigation/StackNavigation";
+import {ReviewsProvider} from "./src/views/Context";
 
 function App() {
     return (

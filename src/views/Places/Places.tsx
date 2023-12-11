@@ -5,8 +5,7 @@ import {Animated, Button, ScrollView, TextInput, View} from "react-native";
 import FlatList = Animated.FlatList;
 import { styles } from './styles';
 const { colors } = config.tokens;
-import { AddReview } from '../Reviews/AddReview';
-// @ts-ignore
+
 // const restaurantData = [
 //     { name: 'Astana kebab', value: 3.5,reviews:150 , distance:1.4 , logo: require('../../assets/users/user1.png') },
 //     { name: 'Restauracja B', value: 2.75, logo: require('../../assets/users/user1.png') },
@@ -26,10 +25,6 @@ import { AddReview } from '../Reviews/AddReview';
 //     { name: 'Restauracja B', value: 2.75, logo: require('../../assets/users/user1.png') },
 // ];
 
-
-
-// @ts-ignore
-
 export const Places = ({navigation}:any) => {
     const [list, setList] = useState([]);
     const reviews = 1;
@@ -39,12 +34,9 @@ export const Places = ({navigation}:any) => {
         // @ts-ignore
         setList([...list, newItem]);
     };
-    const handleAddReview = (newItem: any) => {
-        // @ts-ignore
-        setList([...listReview, newItem]);
-    };
+
     const renderItem = ({ item,index,navigation}:any) => (
-        <View  style={{ flexDirection:'row' , justifyContent: 'center', alignItems: 'center',marginTop:0}}>
+        <View key={index} style={{ flexDirection:'row' , justifyContent: 'center', alignItems: 'center',marginTop:0}}>
             <View style={styles.card}>
                 <View style={{width:'45%', marginLeft:'5%'}}>
                    <Image alt={'logo'} source={require("../../assets/logo.png")} style={styles.card.logo} />
@@ -56,9 +48,9 @@ export const Places = ({navigation}:any) => {
                         <Text style={styles.text}>Liczba opini: {item.reviews}</Text>
                         <Text style={styles.text}>Do celu: {item.distance} km</Text>
                     </View>
-                    <Pressable style={styles.button} onPress={() => navigation.push('Dodaj opinię', { addItem: handleAddReview })}>
-                        <Text style={styles.button.text} >Dodaj opinię</Text>
-                    </Pressable>
+                    {/*<Pressable style={styles.button} onPress={() => navigation.push('Dodaj opinię')}>*/}
+                    {/*    <Text style={styles.button.text} >Dodaj opinię</Text>*/}
+                    {/*</Pressable>*/}
                 </View>
             </View>
         </View>

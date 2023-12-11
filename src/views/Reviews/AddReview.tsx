@@ -12,7 +12,10 @@ export const AddReview = ({ navigation, route }:any) => {
 
     const handleAddReview = () => {
 
-        route.params.addItem({ value, description });
+        // Dodawanie nowej pozycji do listy w ekranie Lista
+        route.params.addItem({ value,description});
+
+        // Powrót do ekranu Lista
         navigation.goBack();
     };
 
