@@ -24,10 +24,9 @@ export const EditReview = ({ navigation, route }:any) => {
                 />
                 <TextInput
                     placeholderTextColor={'#fff'}
-                    style={{...styles.input,height:300,padding:10}}
+                    style={{...styles.input,height:'auto',padding:10}}
                     placeholder="Napisz opinię..."
                     value={description}
-                    multiline={true}
                     onChangeText={(text) => setDescription(text)}
                 />
                 <Pressable style={{...styles.button, marginTop:30,marginBottom:15}} onPress={()=> navigation.goBack()} >
