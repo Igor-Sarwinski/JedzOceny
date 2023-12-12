@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {Box, Text, Pressable, InputField, Image} from '@gluestack-ui/themed';
 import {config} from "../../../config/gluestack-ui.config";
 import {Animated, Button, ScrollView, TextInput, View} from "react-native";
@@ -32,21 +32,28 @@ const restaurantData = [
 
 
 
-export const Reviews = ({navigation}:any) => {
+export const Reviews = ({navigation,route}:any) => {
     const [listReview, setListReview] = useState([]);
     const reviews = 1;
     const value = 3;
     const distance = 2;
-    const handleAddReview = (newItem: any) => {
-        // @ts-ignore
-        setListReview([...listReview, newItem]);
-    };
+    useEffect(() => {
+        // Check if there's a new item passed as a parameter
+        const newItem = route.params?.newItem;
+        if (newItem) {
+            setListReview([...listReview, newItem]);
+        }
+    }, [route.params?.newItem]);
+    // const handleAddReview = (newItem: any) => {
+    //     // @ts-ignore
+    //     setListReview([...listReview, newItem]);
+    // };
     const renderItem = ({ item, index, navigation }:any) => (
         <View key={index} style={{ flexDirection: 'column', justifyContent: 'center', alignItems: 'center', marginTop: 10 }}>
             <View style={styles.card}>
                 <View style={{ flexDirection: 'row',flexWrap:'wrap' , alignItems: 'center', marginTop: 20 }}>
                     <View style={{ width: '45%', marginLeft: '5%' }}>
-                        <Image alt={'logo'} source={item.logo} style={styles.card.logo} />
+                        <Image alt={'logo'} source={require('../../assets/logo.png')} style={styles.card.logo} />
                     </View>
                     <View style={{ flexDirection: 'column', width: "40%", marginLeft: '3%' }}>
                         <View style={{ marginLeft: 10 }}>

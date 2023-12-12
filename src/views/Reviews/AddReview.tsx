@@ -12,8 +12,7 @@ export const AddReview = ({ navigation, route }:any) => {
 
     const handleAddReview = () => {
 
-        route.params.addItem({ value, description });
-        navigation.goBack();
+        navigation.navigate('Reviews', { newItem: {value,description}  });
     };
 
     return (
