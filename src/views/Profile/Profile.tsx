@@ -34,11 +34,17 @@ export const Profile = ({ navigation }: any) => {
             <View style={{width:'45%',borderRadius:90, marginLeft:'5%',alignSelf:'center',marginVertical:30}}>
                 <Image alt={'logo'} source={require("../../assets/logo.png")} style={styles.card.logo} />
             </View >
-            <View >
-            <Text style={styles.input}>{user.name}</Text>
-            <Text style={styles.input}>{user.surname}</Text>
-            <Text style={styles.input}>{user.mail}</Text>
-            <Text style={styles.input}>{user.city}</Text>
+            <View style={styles.input}>
+            <Text style={styles.text}>{user.name}</Text>
+            </View>
+                <View style={styles.input}>
+            <Text style={styles.text}>{user.surname}</Text>
+                </View>
+                    <View style={styles.input}>
+            <Text style={styles.text}>{user.mail}</Text>
+                    </View>
+                <View style={styles.input}>
+            <Text style={styles.text}>{user.city}</Text>
             </View>
 
             <View style={{ marginLeft:'5%',alignSelf:'center',marginVertical:30, flexDirection:'row'}}>
@@ -47,7 +53,7 @@ export const Profile = ({ navigation }: any) => {
                 </Pressable>
 
 
-                <Pressable style={{...styles.button, marginTop:15,marginLeft:20}} onPress={handleEditProfile}  >
+                <Pressable style={{...styles.button, marginTop:15,marginLeft:20}} onPress={() => navigation.navigate("Edytuj profil") } >
                     <Text style={styles.button.text}>Edytuj Profil</Text>
                 </Pressable>
             </View>

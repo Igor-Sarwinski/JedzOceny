@@ -7,6 +7,7 @@ import Login from "../views/Login/Login";
 import FAQ from "../views/FAQ/FAQ";
 import PlaceInfo from "../views/Places/PlaceInfo"
 import React from "react";
+import EditProfile from "../views/Profile/EditProfile";
 const Stack = createStackNavigator();
 const defaultScreenOptions = {
     headerTintColor: 'white', // Ustaw kolor tekstu nagłówka
@@ -31,9 +32,10 @@ export function StackNavigation() {
             <Stack.Screen name="Edytuj opinię" component={EditReview} />
             <Stack.Screen name="Home" component={Home} />
             <Stack.Screen name="Rejestracja" component={Register} />
+            <Stack.Screen name="Edytuj profil" component={EditProfile}/>
             <Stack.Screen name="FAQ" component={FAQ} />
             <Stack.Screen name="Informacje o restauracji" component={PlaceInfo} />
-            
+
         </Stack.Navigator>
     );
 }

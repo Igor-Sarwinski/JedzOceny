@@ -43,6 +43,7 @@ export const styles = StyleSheet.create({
     text:{
         color:colors.white,
         fontSize:16,
+        textAlign:'center',
     },
     card:{
         marginTop:10,
@@ -55,18 +56,15 @@ export const styles = StyleSheet.create({
         flexDirection:'row',
         height:200,
         logo:{
-            width: 150,
-            height: 150,
-            borderRadius:90,
-            borderWidth:2,
-            borderColor:colors.white
+            width: 140,
+            height: 155,
+            borderRadius:30,
         },
     },
     input: {
         backgroundColor:colors.input,
         color:colors.white,
         borderColor: colors.border,
-        borderRadius:30,
         marginTop:20,
         borderWidth: 2,
         minHeight:32,
@@ -75,6 +73,5 @@ export const styles = StyleSheet.create({
         padding:15,
         borderRadius:30,
         textAlign:'center',
-        alignItems:"center"
     }
 })
