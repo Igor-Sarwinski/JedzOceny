@@ -23,33 +23,39 @@ const routes = [
         name: "Strona główna",
         screen: HomeNavigation,
         icon: "home",
+        ekran:'HomeNavigation'
     },
     {
         name: "Restauracje",
         screen: PlacesNavigation,
         icon: "list",
+        ekran:'Places'
     },
     {
         name: "Opinie",
         screen: ReviewsNavigation,
         icon: "comments",
+        ekran:'Reviews'
     },
     {
         name: "Profil",
         screen: ProfileNavigation,
         icon: "id-card",
-        initialTab: 'Profile',
+        ekran: 'Profile',
+
 
     },
     {
         name: "FAQ",
         screen: FAQNavigation,
         icon: "book",
+        ekran: 'FAQ'
     },
     {
         name: "Statystyki",
         screen: StatsNavigation,
         icon: "signal",
+        ekran:'Stats'
     },
     {
         name: "Wyloguj się",
@@ -79,7 +85,12 @@ function CustomDrawerContent(props: any) {
                         key={index}
                         label={route.name}
                         focused={isRouteFocused}
-                        onPress={() => props.navigation.navigate(route.name,{ screen: route.screen })}
+
+                            onPress={() =>{
+                                props.navigation.navigate(route.name,{screen:route.ekran})
+
+                            }}
+
                         icon={({focused}) => (
                             <Icon
                                 // @ts-ignore
@@ -105,7 +116,7 @@ function CustomDrawerContent(props: any) {
 export const DrawerNavigation = ({navigation}:any) => {
 
     return (
-        <Drawer.Navigator initialRouteName="Strona główna" drawerContent={props => <CustomDrawerContent {...props} />}>
+        <Drawer.Navigator screenOptions={{headerTitleAlign:'center',}} initialRouteName="Strona główna" drawerContent={props => <CustomDrawerContent {...props} />}>
             {routes.map((route, index) => (
                 <Drawer.Screen key={index}  name={route.name} component={route.screen} options={{
                     drawerLabel: route.name,
