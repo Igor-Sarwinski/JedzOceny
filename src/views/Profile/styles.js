@@ -55,11 +55,9 @@ export const styles = StyleSheet.create({
         flexDirection:'row',
         height:200,
         logo:{
-            width: 150,
-            height: 150,
-            borderRadius:90,
-            borderWidth:2,
-            borderColor:colors.white
+            width: 140,
+            height: 155,
+            borderRadius:30,
         },
     },
     input: {
@@ -73,7 +71,6 @@ export const styles = StyleSheet.create({
         minWidth:145,
         paddingLeft:10,
         padding:15,
-        borderRadius:30,
         textAlign:'center',
         alignItems:"center"
     },

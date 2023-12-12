@@ -47,7 +47,7 @@ export const Profile = ({ navigation }: any) => {
                 </Pressable>
 
 
-                <Pressable style={{...styles.button, marginTop:15,marginLeft:20}} onPress={handleEditProfile}  >
+                <Pressable style={{...styles.button, marginTop:15,marginLeft:20}} onPress={()=> navigation.push("Edytuj profil")}  >
                     <Text style={styles.button.text}>Edytuj Profil</Text>
                 </Pressable>
             </View>
