@@ -12,10 +12,12 @@ const defaultScreenOptions = {
     headerTintColor: 'white', // Ustaw kolor tekstu nagłówka
     headerBackTitle:'Wróć',
     headerBackTitleVisible: true, // Ukryj domyślny napis na przycisku do cofania
+    headerTitleAlign:'center',
 };
 export function StackNavigation() {
-    return (
 
+    return (
+        // @ts-ignore
         <Stack.Navigator screenOptions={defaultScreenOptions}>
             <Stack.Screen name="Login" component={Login} />
             <Stack.Screen name="DrawerNavigation" component={DrawerNavigation} options={{headerShown:false }} />

@@ -72,5 +72,20 @@ export const styles = StyleSheet.create({
         minHeight:32,
         minWidth:145,
         paddingLeft:10,
+    },
+    area:{
+        backgroundColor:colors.input,
+        color:colors.white,
+        borderColor: colors.border,
+        borderRadius:5,
+        marginTop:25,
+        borderWidth: 2,
+        minHeight:50,
+        minWidth:145,
+        paddingLeft:10,
+        padding:20,
+        textAlign:'center'
+
+
     }
 })
