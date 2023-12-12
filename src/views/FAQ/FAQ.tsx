@@ -27,14 +27,10 @@ export const FAQ = ({navigation}:any) => {
 
     // @ts-ignore
     const renderFAQItem = ({ item, index }) => (
-        <View style={{ marginBottom: 10 }}>
-            <TouchableOpacity
+        <View style={styles.input}>
+            <Pressable
                 onPress={() => toggleItem(index)}
                 style={{
-                    backgroundColor: colors.input,
-                    borderWidth: 2,
-                    borderColor: colors.border,
-                    borderRadius: 5,
                     padding: 15,
                 }}
             >
@@ -44,7 +40,7 @@ export const FAQ = ({navigation}:any) => {
                         <Text style={{ color: colors.white }}>{item.answer}</Text>
                     </Animated.View>
                 )}
-            </TouchableOpacity>
+            </Pressable>
         </View>
     );
 
