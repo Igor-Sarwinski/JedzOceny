@@ -49,6 +49,7 @@ export const Places = ({navigation}:any) => {
                 <View style={{width:'45%', marginLeft:'5%'}}>
                    <Image alt={'logo'} source={require("../../assets/logo.png")} style={styles.card.logo} />
                 </View>
+
                 <View style={{ flexDirection:'column', width:"40%",marginLeft:'3%' }}>
                     <View style={{marginLeft:10}}>
                         <Text style={styles.text}>{item.name}</Text>
@@ -87,7 +88,11 @@ export const Places = ({navigation}:any) => {
                 >
                     <Text style={styles.button.text}>Dodaj restauracje</Text>
                 </Pressable>
+
             </View>
+    <Pressable onPress={()=> navigation.push("Informacje o restauracji")}>
+        <Text style={styles.button.text}>INFO</Text>
+    </Pressable>
             <ScrollView style={{marginTop:10,marginBottom:35}}>
                 <View>
                     <FlatList

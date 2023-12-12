@@ -5,6 +5,7 @@ import {HomeNavigation} from "./BottomNavigation";
 import DrawerNavigation from "./DrawerNavigation";
 import Login from "../views/Login/Login";
 import FAQ from "../views/FAQ/FAQ";
+import PlaceInfo from "../views/Places/PlaceInfo"
 import React from "react";
 const Stack = createStackNavigator();
 const defaultScreenOptions = {
@@ -29,6 +30,7 @@ export function StackNavigation() {
             <Stack.Screen name="Home" component={Home} />
             <Stack.Screen name="Rejestracja" component={Register} />
             <Stack.Screen name="FAQ" component={FAQ} />
+            <Stack.Screen name="Informacje o restauracji" component={PlaceInfo} />
             
         </Stack.Navigator>
     );

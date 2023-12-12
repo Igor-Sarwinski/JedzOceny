@@ -7,20 +7,19 @@ import { Q } from '@expo/html-elements';
 const { colors } = config.tokens;
 export const Stats = ({ navigation }: any) => {
     return (
-        <Box flex={1} justifyContent="center" alignItems="center" marginVertical={15} borderRadius={55}
-             backgroundColor={colors.background}>
+        <Box  style={{flex:1 ,justifyContent:"center", alignItems:"center", marginVertical:15, borderRadius:55,
+             backgroundColor:colors.background}}>
             <View style={{width:'90%',flex:1}}>
-            <View style={{width:'45%', marginLeft:'5%',alignSelf:'center',marginVertical:30}}>
-                <Image alt={'logo'} source={require("../../assets/logo.png")} style={styles.card.logo} />
-            </View>
-            <View style={{backgroundColor:colors.border,
+
+                <Image style={{width:133,height:145,alignSelf:'center', marginVertical:35}} source={require("../../assets/logo.png")}></Image>
+
+            <View style={{backgroundColor:colors.input,
                 padding:15,
                 borderRadius:10,
                 marginBottom:20,
                 alignItems:"center"
 
             }}
-
 
             >
                 <Text style={styles.text}>Opinie: 2137</Text>
