@@ -1,9 +1,7 @@
-import React, {useState} from 'react';
-import {Box, Text, Pressable, InputField, Image} from '@gluestack-ui/themed';
-import { View, TouchableOpacity, FlatList, Animated, Linking } from 'react-native';
+import {Box, Text, Pressable, Image} from '@gluestack-ui/themed';
+import { View, Linking } from 'react-native';
 import {config} from "../../../config/gluestack-ui.config";
 import { styles } from './styles';
-import { Q } from '@expo/html-elements';
 const { colors } = config.tokens;
 export const Stats = ({ navigation }: any) => {
     return (

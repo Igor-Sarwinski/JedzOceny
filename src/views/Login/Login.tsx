@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import { Box, Text } from '@gluestack-ui/themed';
-import {Image, Pressable, ScrollView, TextInput, View} from "react-native";
+import {Image, Pressable, TextInput, View} from "react-native";
 import {styles} from "./styles";
 import {config} from "../../../config/gluestack-ui.config";
 const { colors } = config.tokens;

@@ -1,9 +1,8 @@
 import React, {useState} from 'react';
-import {Box, Text, Pressable, InputField, Image} from '@gluestack-ui/themed';
-import {View, TouchableOpacity, FlatList, Animated, Linking, TextInput} from 'react-native';
+import {Box, Text, Pressable, Image} from '@gluestack-ui/themed';
+import {View, TextInput} from 'react-native';
 import {config} from "../../../config/gluestack-ui.config";
 import { styles } from './styles';
-import { Q } from '@expo/html-elements';
 const { colors } = config.tokens;
 export const EditProfile = ({ navigation }: any) => {
     const [name, setName] = useState('');
@@ -12,14 +11,9 @@ export const EditProfile = ({ navigation }: any) => {
     const [password, setPassword] = useState('');
 
     const handleEditProfile = () => {
-        // Obsługa przycisku do edycji profilu
-        // Dodaj kod nawigacji do ekranu edycji profilu lub innej logiki
     };
 
     const handleAddPhoto = () => {
-        // Obsługa przycisku do dodawania zdjęcia
-        // Tutaj możesz umieścić kod obsługi dodawania zdjęcia
-        // Na przykład, otworzyć modal lub nawigować do ekranu do dodawania zdjęcia
     };
 
     return (
@@ -72,7 +66,6 @@ export const EditProfile = ({ navigation }: any) => {
                 </Pressable>
             </View>
         </View>
-
         </Box>
     );
 };

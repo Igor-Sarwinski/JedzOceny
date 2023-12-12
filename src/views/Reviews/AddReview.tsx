@@ -9,9 +9,7 @@ export const AddReview = ({ navigation, route }:any) => {
     const [description, setDescription] = useState('');
     const [value, setValue] = useState('');
 
-
     const handleAddReview = () => {
-
         navigation.navigate('Reviews', { newItem: {value,description}  });
     };
 

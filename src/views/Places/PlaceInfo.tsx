@@ -12,8 +12,7 @@ export const PlaceInfo = ({navigation}:any) => {
         city:'Kielce',
         hrs:'10:00-11:00',
         tel:'123 456 789',
-        logo: require('../../assets/users/user1.png'), // Dodaj ścieżkę do twojego pliku z avatarem
-        // Dodaj inne dane użytkownika według potrzeb
+        logo: require('../../assets/users/user1.png')
     });
 
 

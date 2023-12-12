@@ -1,36 +1,10 @@
 import React, {useEffect, useState} from 'react';
-import {Box, Text, Pressable, InputField, Image} from '@gluestack-ui/themed';
+import {Box, Text, Pressable, Image} from '@gluestack-ui/themed';
 import {config} from "../../../config/gluestack-ui.config";
-import {Animated, Button, ScrollView, TextInput, View} from "react-native";
+import {Animated, ScrollView, TextInput, View} from "react-native";
 import FlatList = Animated.FlatList;
 import { styles } from './styles';
 const { colors } = config.tokens;
-
-const restaurantData = [
-    { name: 'Astana kebab', value: 3.5, description:'Komentarz nr.1, ogo\nlnig]n\ng\ng\nggggggkkldfldkfldk lfdldlfdkdfkdlfkdlfkdlfldkfldklfdklflk lfkdlkfldkfl ld d fd fdfd fd fd fd fd fd fdfd fd fd d fd\n  sd s dobre jedzonko ale moglobyc lepiej', logo: require('../../assets/users/user1.png') },
-    { name: 'Restauracja B', value: 2.75, logo: require('../../assets/users/user1.png') },
-    { name: 'Restauracja C', value: 1.0, logo: require('../../assets/logo.png') },
-    { name: 'Astana', value: 3.5, logo: require('../../assets/users/user1.png') },
-    { name: 'Restssracja B', value: 4.75, logo: require('../../assets/users/user1.png') },
-    { name: 'Restauracja C', value: 3.0, logo: require('../../assets/logo.png') },
-    { name: 'Astana       ', value: 1.5, logo: require('../../assets/users/user1.png') },
-    { name: 'Restauracja B', value: 2.75, logo: require('../../assets/users/user1.png') },
-    { name: 'Astana', value: 3.5, logo: require('../../assets/logo.png') },
-    { name: 'Restauracja B', value: 2.75, logo: require('../../assets/users/user1.png') },
-    { name: 'Restauracja C', value: 1.0, logo: require('../../assets/users/user1.png') },
-    { name: 'Astana', value: 3.5, logo: require('../../assets/users/user1.png') },
-    { name: 'Restssracja B', value: 4.75, logo: require('../../assets/logo.png') },
-    { name: 'Restauracja C', value: 3.0, logo: require('../../assets/users/user1.png') },
-    { name: 'Astana       ', value: 1.5, logo: require('../../assets/users/user1.png') },
-    { name: 'Restauracja B', value: 2.75, logo: require('../../assets/users/user1.png') },
-];
-
-
-
-// @ts-ignore
-
-
-
 
 export const Reviews = ({navigation,route}:any) => {
     const [listReview, setListReview] = useState([]);
@@ -44,10 +18,6 @@ export const Reviews = ({navigation,route}:any) => {
             setListReview([...listReview, newItem]);
         }
     }, [route.params?.newItem]);
-    // const handleAddReview = (newItem: any) => {
-    //     // @ts-ignore
-    //     setListReview([...listReview, newItem]);
-    // };
     const renderItem = ({ item, index, navigation }:any) => (
         <View key={index} style={{ flexDirection: 'column', justifyContent: 'center', alignItems: 'center', marginTop: 10 }}>
             <View style={styles.card}>

@@ -1,9 +1,8 @@
 import React, {useState} from 'react';
-import {Box, Text, Pressable, InputField, Image} from '@gluestack-ui/themed';
-import { View, TouchableOpacity, FlatList, Animated } from 'react-native';
+import { Text, Pressable} from '@gluestack-ui/themed';
+import { View, FlatList, Animated } from 'react-native';
 import {config} from "../../../config/gluestack-ui.config";
 import { styles } from './styles';
-import { Q } from '@expo/html-elements';
 const { colors } = config.tokens;
 
 const faqData = [
@@ -32,7 +31,7 @@ export const FAQ = ({navigation}:any) => {
                 onPress={() => toggleItem(index)}
                 style={styles.area}
             >
-                <Text style={{ color: colors.white, fontSize: 18 }}>{item.question}</Text>
+                <Text style={{ color: colors.white, fontSize: 18,fontWeight:'bold' }}>{item.question}</Text>
                 {expandedIndex === index && (
                     <Animated.View style={{ marginTop: 10 }}>
                         <Text style={{ color: colors.white }}>{item.answer}</Text>
