@@ -47,10 +47,13 @@ export const Places = ({navigation}:any) => {
         <View  style={{ flexDirection:'row' , justifyContent: 'center', alignItems: 'center',marginTop:0}}>
             <View style={styles.card}>
                 <View style={{width:'45%', marginLeft:'5%'}}>
+                    <Pressable onPress={()=> navigation.push("Informacje o restauracji")}>
                    <Image alt={'logo'} source={require("../../assets/logo.png")} style={styles.card.logo} />
+                </Pressable>
                 </View>
 
                 <View style={{ flexDirection:'column', width:"40%",marginLeft:'3%' }}>
+
                     <View style={{marginLeft:10}}>
                         <Text style={styles.text}>{item.name}</Text>
                         <Text style={styles.text}>Ocena: {item.value} /5</Text>
