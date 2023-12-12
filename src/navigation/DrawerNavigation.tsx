@@ -79,7 +79,7 @@ function CustomDrawerContent(props: any) {
             <CustomDrawerLogo logo={require('../assets/logo.png')}/>
             {routes.map((route, index) => {
                 const isRouteFocused = currentRouteName === route.name;
-
+                //s
                 return (
                     <DrawerItem
                         key={index}
