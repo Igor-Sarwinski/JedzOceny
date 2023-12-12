@@ -8,10 +8,10 @@ const { colors } = config.tokens;
 export const Profile = ({ navigation }: any) => {
 
     const [user, setUser] = useState({
-        name: 'Jarosław ',
-        surname:'Wikarek',
-        mail:'jestemjebanadziwka@gmail.com',
-        city:'Ostrowiec Świętokrzyski',
+        name: 'Marcin',
+        surname:'Nowak',
+        mail:'yngigi@gmail.com',
+        city:'Kielce',
         avatar: require('../../assets/users/user1.png'), // Dodaj ścieżkę do twojego pliku z avatarem
         // Dodaj inne dane użytkownika według potrzeb
     });
@@ -32,14 +32,14 @@ export const Profile = ({ navigation }: any) => {
             backgroundColor:colors.background}}>
             <View style={{width:'90%',flex:1}}>
             <View style={{width:'45%',borderRadius:90, marginLeft:'5%',alignSelf:'center',marginVertical:30}}>
-                <Image alt={'logo'} source={require("../../assets/logo.png")} style={styles.card.logo} />
+                <Image alt={'logo'} source={user.avatar} style={styles.card.logo} />
             </View >
-            <View >
-            <Text style={styles.input}>{user.name}</Text>
-            <Text style={styles.input}>{user.surname}</Text>
-            <Text style={styles.input}>{user.mail}</Text>
-            <Text style={styles.input}>{user.city}</Text>
-            </View>
+
+            <Text style={styles.area}>{user.name}</Text>
+            <Text style={styles.area}>{user.surname}</Text>
+            <Text style={styles.area}>{user.mail}</Text>
+            <Text style={styles.area}>{user.city}</Text>
+
 
             <View style={{ marginLeft:'5%',alignSelf:'center',marginVertical:30, flexDirection:'row'}}>
                 <Pressable style={{...styles.button, marginTop:15,marginRight:20}} onPress={handleAddPhoto}  >

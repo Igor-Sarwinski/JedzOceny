@@ -10,10 +10,10 @@ const faqData = [
     { question: 'Nie możesz się zalogować?', answer: 'Upewnij się że podany przez Ciebie login i hasło są poprawne. Jeśli to nie to było problemem skontaktuj się z administratorem aplikacji. Napisz mail na yngigi@mail.com' },
     { question: 'Jak dodać swoją opinię?', answer: 'Odpowiedź na pytanie 2.' },
     { question: 'Jak dodać restaurację?', answer: 'Odpowiedź na pytanie 3.' },
-    { question: 'Nie możesz się zalogować?', answer: 'Odpowiedź na pytanie 3.' },
-    { question: 'Jak zmienić zdjęcie profilowe?', answer: 'Odpowiedź na pytanie 3.' },
-    { question: 'Jak dodać zdjęcie?', answer: 'Odpowiedź na pytanie 3.' },
-    { question: 'Jak napisać komentarz?', answer: 'Odpowiedź na pytanie 3.' },
+    { question: 'Nie możesz się zalogować?', answer: 'Odpowiedź na pytanie 4.' },
+    { question: 'Jak zmienić zdjęcie profilowe?', answer: 'Odpowiedź na pytanie 5.' },
+    { question: 'Jak dodać zdjęcie?', answer: 'Odpowiedź na pytanie 6.' },
+    { question: 'Jak napisać komentarz?', answer: 'Odpowiedź na pytanie 7.' },
 
 ];
 
@@ -27,12 +27,10 @@ export const FAQ = ({navigation}:any) => {
 
     // @ts-ignore
     const renderFAQItem = ({ item, index }) => (
-        <View style={styles.input}>
+
             <Pressable
                 onPress={() => toggleItem(index)}
-                style={{
-                    padding: 15,
-                }}
+                style={styles.area}
             >
                 <Text style={{ color: colors.white, fontSize: 18 }}>{item.question}</Text>
                 {expandedIndex === index && (
@@ -41,7 +39,7 @@ export const FAQ = ({navigation}:any) => {
                     </Animated.View>
                 )}
             </Pressable>
-        </View>
+
     );
 
     return (

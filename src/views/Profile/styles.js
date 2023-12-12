@@ -34,7 +34,7 @@ export const styles = StyleSheet.create({
         alignItems:'center',
         justifyContent:'center',
         minWidth:145,
-        height:32,
+        height:50,
         marginTop:10,
         text:{
             color:colors.white,
@@ -76,5 +76,19 @@ export const styles = StyleSheet.create({
         borderRadius:30,
         textAlign:'center',
         alignItems:"center"
+    },
+    area:{
+        backgroundColor:colors.input,
+        color:colors.white,
+        borderColor: colors.border,
+        borderRadius:5,
+        marginTop:20,
+        borderWidth: 2,
+        minHeight:50,
+        minWidth:145,
+        padding:15,
+        textAlign:'center'
+
+
     }
 })

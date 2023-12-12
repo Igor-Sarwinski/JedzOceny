@@ -27,18 +27,19 @@ export const Stats = ({ navigation }: any) => {
                 <Text style={styles.text}>Opinie: 13377</Text>
 
             </View>
-
-
-            <View style={{width:'45%', marginLeft:'5%',alignSelf:'center',marginVertical:30, flexDirection:'row'}}>
+                <View style={{alignItems:'center'}}>
+                <Text style={styles.text}>Social Media:</Text>
+                </View>
+            <View style={{ alignSelf:'center',marginVertical:30, flexDirection:'row'}}>
                 <Pressable onPress={() => (Linking.openURL('https://www.facebook.com/'))}>
                     <Image
-                        source={require('../../assets/users/user1.png')}
-                        style={{ width: 50, height: 50, marginRight: 20 }}
+                        source={require('../../assets/facebook.png')}
+                        style={{ width: 50, height: 50,marginRight:'15%' }}
                     />
                 </Pressable>
                 <Pressable onPress={() => (Linking.openURL('https://www.instagram.com/'))}>
                     <Image
-                        source={require('../../assets/users/user1.png')}
+                        source={require('../../assets/instagram.png')}
                         style={{ width: 50, height: 50 }}
                     />
                 </Pressable>

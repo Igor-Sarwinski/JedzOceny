@@ -7,11 +7,11 @@ const { colors } = config.tokens;
 
 export const PlaceInfo = ({navigation}:any) => {
     const [place, setUser] = useState({
-        name: 'U rafonixa ',
-        address:'ul. Rafonixa 1',
-        city:'Ostrowiec Świętokrzyski',
+        name: 'Astana',
+        address:'ul. Paderewskiego 1',
+        city:'Kielce',
         hrs:'10:00-11:00',
-        tel:'997 997 997',
+        tel:'123 456 789',
         logo: require('../../assets/users/user1.png'), // Dodaj ścieżkę do twojego pliku z avatarem
         // Dodaj inne dane użytkownika według potrzeb
     });
