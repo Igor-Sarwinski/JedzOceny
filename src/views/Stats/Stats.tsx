@@ -40,6 +40,12 @@ export const Stats = ({ navigation }: any) => {
                 <Pressable onPress={() => (Linking.openURL('https://www.instagram.com/'))}>
                     <Image
                         source={require('../../assets/instagram.png')}
+                        style={{ width: 50, height: 50,marginRight:'15%' }}
+                    />
+                </Pressable>
+                <Pressable onPress={() => (Linking.openURL('https://github.com/Igor-Sarwinski/JedzOceny'))}>
+                    <Image
+                        source={require('../../assets/github.png')}
                         style={{ width: 50, height: 50 }}
                     />
                 </Pressable>
