@@ -20,9 +20,6 @@ export const Login = ({navigation}:any) => {
         <Box flex={1} alignItems="center" marginVertical={15} borderRadius={55}
              backgroundColor={colors.background}>
             <View style={{width:'60%'}}>
-                    <Pressable onPress={()=> navigation.navigate("DrawerNavigation")}>
-                        <Text style={styles.button.text}>Zaloguj - skip</Text>
-                    </Pressable>
                     <Image style={{width:133,height:145,alignSelf:'center', marginVertical:35}} source={require("../../assets/logo.png")}></Image>
                     <TextInput
                         style={styles.input}
