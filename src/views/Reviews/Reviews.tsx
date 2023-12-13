@@ -11,6 +11,17 @@ export const Reviews = ({navigation,route}:any) => {
     const reviews = 1;
     const value = 3;
     const distance = 2;
+    const handleDelete = (index: number) => {
+        const newListReview = [...listReview];
+        newListReview.splice(index, 1);
+        setListReview(newListReview);
+    };
+    const handleEdit = (index: number, editedItem: any) => {
+        const newListReview = [...listReview];
+        newListReview[index] = editedItem;
+        setListReview(newListReview);
+    };
+
     useEffect(() => {
         // Check if there's a new item passed as a parameter
         const newItem = route.params?.newItem;
@@ -31,10 +42,16 @@ export const Reviews = ({navigation,route}:any) => {
                             <Text style={styles.text}>Twoja ocena:</Text>
                             <Text style={{ ...styles.text, alignSelf: 'center', fontWeight: 'bold' }}>{item.value}/5 </Text>
                         </View>
-                        <Pressable style={styles.button} onPress={() => navigation.push('Edytuj opinię')}>
+                        <Pressable
+                            style={styles.button}
+                            onPress={() => navigation.push('Edytuj opinię', {
+                                editItem: item,
+                                index: index,
+                                handleEdit: handleEdit,
+                        })}>
                             <Text style={styles.button.text}>Edytuj</Text>
                         </Pressable>
-                        <Pressable style={styles.button} onPress={() => navigation.push('Dodaj opinię')}>
+                        <Pressable style={styles.button} onPress={() => handleDelete(index)}>
                             <Text style={styles.button.text}>Usuń</Text>
                         </Pressable>
                     </View>
@@ -52,7 +69,7 @@ export const Reviews = ({navigation,route}:any) => {
         <Box flex={1} justifyContent="center" alignItems="center" marginVertical={15} borderRadius={55}
              backgroundColor={colors.background}>
 
-            <View style={{flexDirection: 'row', alignItems: 'center', width:"90%"}}>
+            <View style={{flexDirection: 'row', alignItems: 'center', width:"90%",marginTop:60}}>
                 <TextInput
                     style={styles.search}
                     placeholder="Szukaj"
@@ -64,8 +81,8 @@ export const Reviews = ({navigation,route}:any) => {
                     }}
                 />
             </View>
-            <ScrollView style={{marginTop:10,marginBottom:35}}>
-                <View>
+            <View>
+                <View style={{marginTop:10,marginBottom:80}}>
                     <FlatList
                         data={listReview}
                         renderItem={({ item, index }) => renderItem({ item, index, navigation })}
@@ -73,9 +90,7 @@ export const Reviews = ({navigation,route}:any) => {
 
                     />
                 </View>
-
-            </ScrollView>
-
+            </View>
         </Box>
     );
 };
