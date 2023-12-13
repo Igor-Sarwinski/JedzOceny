@@ -20,12 +20,6 @@ export const EditReview = ({ navigation, route }: any) => {
         }
     };
     const handleEdit = () => {
-        // Sprawdźmy, czy funkcja jest wywoływana
-        console.log('Edytowano:', value, description);
-
-
-
-        // Tutaj obsłuż zapis edytowanych wartości, np. zaktualizuj element na liście
         const editedItem = {
             ...route.params.editItem,
             description: description,
@@ -33,7 +27,6 @@ export const EditReview = ({ navigation, route }: any) => {
         };
         route.params.handleEdit(route.params.index, editedItem);
 
-        // Powrót do ekranu z listą
         navigation.goBack();
     };
 

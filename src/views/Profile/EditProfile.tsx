@@ -4,13 +4,22 @@ import {View, TextInput} from 'react-native';
 import {config} from "../../../config/gluestack-ui.config";
 import { styles } from './styles';
 const { colors } = config.tokens;
-export const EditProfile = ({ navigation }: any) => {
-    const [name, setName] = useState('');
-    const [surname, setSurname] = useState('');
-    const [mail, setMail] = useState('');
-    const [password, setPassword] = useState('');
+export const EditProfile = ({ navigation, route }: any) => {
+    const [name, setName] = useState(route.params?.editItem?.name || '');
+    const [surname, setSurname] = useState(route.params?.editItem?.surname || '');
+    const [mail, setMail] = useState(route.params?.editItem?.mail || '');
+    const [password, setPassword] = useState(route.params?.editItem?.password || '');
 
     const handleEditProfile = () => {
+        const editedItem = {
+            name: name,
+            surname: surname,
+            mail: mail,
+            password: password,
+        };
+        route.params.handleEditProfile(editedItem);
+
+        navigation.goBack();
     };
 
     const handleAddPhoto = () => {
@@ -56,12 +65,12 @@ export const EditProfile = ({ navigation }: any) => {
             </View>
 
             <View style={{ marginLeft:'5%',alignSelf:'center',marginVertical:30, flexDirection:'row'}}>
-                <Pressable style={{...styles.button, marginTop:15,marginRight:20}} onPress={handleAddPhoto}  >
+                <Pressable style={{...styles.button, marginTop:15,marginRight:20}} onPress={handleEditProfile}  >
                     <Text style={styles.button.text}>Zapisz</Text>
                 </Pressable>
 
 
-                <Pressable style={{...styles.button, marginTop:15,marginLeft:20}} onPress={handleEditProfile}  >
+                <Pressable style={{...styles.button, marginTop:15,marginLeft:20}} onPress={handleAddPhoto}  >
                     <Text style={styles.button.text}>Edytuj zdjęcie</Text>
                 </Pressable>
             </View>

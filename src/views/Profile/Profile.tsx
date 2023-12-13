@@ -13,6 +13,9 @@ export const Profile = ({ navigation }: any) => {
         city:'Kielce',
         avatar: require('../../assets/users/user1.png'),
     });
+    const handleEditProfile = (editedItem: any) => {
+        setUser({ ...user, ...editedItem });
+    };
     const handleAddPhoto = () => {
     };
 
@@ -34,7 +37,7 @@ export const Profile = ({ navigation }: any) => {
                 <Pressable style={{...styles.button, marginTop:15,marginRight:20}} onPress={handleAddPhoto}  >
                     <Text style={styles.button.text}>Dodaj Zdjęcie</Text>
                 </Pressable>
-                <Pressable style={{...styles.button, marginTop:15,marginLeft:20}} onPress={()=> navigation.push("Edytuj profil")}  >
+                <Pressable style={{...styles.button, marginTop:15,marginLeft:20}} onPress={()=> navigation.push("Edytuj profil", { editItem: user, handleEditProfile: handleEditProfile })}>
                     <Text style={styles.button.text}>Edytuj Profil</Text>
                 </Pressable>
             </View>
