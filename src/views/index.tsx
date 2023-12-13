@@ -9,6 +9,7 @@ import {AddReview} from "./Reviews/AddReview"
 import {EditReview} from "./Reviews/EditReview"
 import {AddPlace} from "./Places/AddPlace"
 import {Register} from "./Login/Register"
+import {Logout} from "./Login/Logout"
 
 
-export {Home,Places,Profile,Reviews,EditProfile,Stats,FAQ,AddReview, AddPlace, EditReview,Register }
+export {Home,Places,Profile,Reviews,EditProfile,Stats,FAQ,AddReview, AddPlace, EditReview,Register,Logout }

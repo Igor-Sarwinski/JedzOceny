@@ -16,6 +16,7 @@ import {Image, View, Text, Button} from "react-native";
 let isLogged: boolean = true;
 import {config} from '../../config/gluestack-ui.config'
 import Login from "../views/Login/Login";
+import {Logout} from "../views";
 const { colors } = config.tokens;
 const Drawer = createDrawerNavigator();
 const routes = [
@@ -59,7 +60,7 @@ const routes = [
     },
     {
         name: "Wyloguj się",
-        screen: Login,
+        screen: Logout,
         icon: null,
     },
 ];
@@ -132,7 +133,6 @@ export const DrawerNavigation = ({navigation}:any) => {
                 }} />
 
             ))}
-
         </Drawer.Navigator>
     );
 }

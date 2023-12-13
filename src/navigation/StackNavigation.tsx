@@ -1,6 +1,6 @@
 import { createStackNavigator } from '@react-navigation/stack';
 
-import {AddPlace, AddReview, EditReview, Register, Home, Places, Profile, Reviews, Stats} from "../views";
+import {AddPlace, AddReview, EditReview, Register, Home, Places, Profile, Reviews, Stats, Logout} from "../views";
 import {HomeNavigation} from "./BottomNavigation";
 import DrawerNavigation from "./DrawerNavigation";
 import Login from "../views/Login/Login";
@@ -35,6 +35,7 @@ export function StackNavigation() {
             <Stack.Screen name="Edytuj profil" component={EditProfile}/>
             <Stack.Screen name="FAQ" component={FAQ} />
             <Stack.Screen name="Informacje o restauracji" component={PlaceInfo} />
+            <Stack.Screen name="Wyloguj się" component={Logout} />
 
         </Stack.Navigator>
     );
