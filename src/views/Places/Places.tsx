@@ -49,7 +49,7 @@ export const Places = ({navigation}:any) => {
         <Box flex={1} justifyContent="center" alignItems="center" marginVertical={15} borderRadius={55}
              backgroundColor={colors.background}>
 <Pressable>
-            <View style={{flexDirection: 'row', alignItems: 'center', width:"90%"}}>
+            <View style={{flexDirection: 'row', alignItems: 'center', width:"90%",marginTop:60}}>
                 <TextInput
                     style={styles.search}
                     placeholder="Szukaj"
@@ -68,7 +68,7 @@ export const Places = ({navigation}:any) => {
                 </Pressable>
 
             </View>
-            <ScrollView style={{marginTop:10,marginBottom:35}}>
+            <View style={{marginTop:10,marginBottom:205}}>
                 <View>
                     <FlatList
                         data={list}
@@ -77,7 +77,7 @@ export const Places = ({navigation}:any) => {
                     />
                 </View>
 
-            </ScrollView>
+            </View>
 </Pressable>
         </Box>
     );
