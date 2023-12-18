@@ -9,7 +9,7 @@ export const Stats = ({ navigation }: any) => {
              backgroundColor:colors.background}}>
             <View style={{width:'90%',flex:1}}>
 
-                <Image style={{width:133,height:145,alignSelf:'center', marginVertical:35}} source={require("../../assets/logo.png")}></Image>
+                <Image alt={"logo"} style={{width:133,height:145,alignSelf:'center', marginVertical:35}} source={require("../../assets/logo.png")}></Image>
 
             <View style={{backgroundColor:colors.input,
                 padding:15,
@@ -22,7 +22,7 @@ export const Stats = ({ navigation }: any) => {
             >
                 <Text style={styles.text}>Opinie: 2137</Text>
                 <Text style={styles.text}>Restauracje: 69</Text>
-                <Text style={styles.text}>Opinie: 13377</Text>
+                <Text style={styles.text}>Użytkownicy: 13377</Text>
 
             </View>
                 <View style={{alignItems:'center'}}>
@@ -32,18 +32,21 @@ export const Stats = ({ navigation }: any) => {
                 <Pressable onPress={() => (Linking.openURL('https://www.facebook.com/'))}>
                     <Image
                         source={require('../../assets/facebook.png')}
+                        alt={"facebook"}
                         style={{ width: 50, height: 50,marginRight:'15%' }}
                     />
                 </Pressable>
                 <Pressable onPress={() => (Linking.openURL('https://www.instagram.com/'))}>
                     <Image
                         source={require('../../assets/instagram.png')}
+                        alt={"instagram"}
                         style={{ width: 50, height: 50,marginRight:'15%' }}
                     />
                 </Pressable>
                 <Pressable onPress={() => (Linking.openURL('https://github.com/Igor-Sarwinski/JedzOceny'))}>
                     <Image
                         source={require('../../assets/github.png')}
+                        alt={"github"}
                         style={{ width: 50, height: 50 }}
                     />
                 </Pressable>
