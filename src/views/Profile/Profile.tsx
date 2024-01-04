@@ -41,7 +41,10 @@ export const Profile = ({ navigation }: any) => {
             console.log('ImagePicker result:', JSON.stringify(result));
 
             if (!result.cancelled && result.assets && result.assets.length > 0 && result.assets[0].uri) {
-                const fileName = 'user_avatar.jpg';
+
+                const randomSuffix = Math.floor(Math.random() * 50000000000); // Adjust the range as needed
+                const fileName = `user_avatar_${randomSuffix}_${Date.now()}.jpg`;
+
                 const destination = `${FileSystem.documentDirectory}${fileName}`;
 
                 console.log('Trying to move file from', result.assets[0].uri, 'to', destination);
