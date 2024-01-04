@@ -114,8 +114,9 @@ function CustomDrawerContent(props: any) {
 }
 
 // @ts-ignore
-export const DrawerNavigation = ({navigation}:any) => {
-
+export const DrawerNavigation = ({ navigation, route }: any) => {
+    console.log('Przekazane parametry Drawer:', route.params);
+    const user = route.params;
     return (
         <Drawer.Navigator screenOptions={{headerTitleAlign:'center',}} initialRouteName="Strona główna" drawerContent={props => <CustomDrawerContent {...props} />}>
             {routes.map((route, index) => (
@@ -130,7 +131,9 @@ export const DrawerNavigation = ({navigation}:any) => {
                         />
                     ),
                     headerTintColor: 'white',
-                }} />
+                }}
+                               initialParams={{ user: user }}
+                />
 
             ))}
         </Drawer.Navigator>

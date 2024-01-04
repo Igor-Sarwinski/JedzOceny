@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import { Box, Text, Image,View } from '@gluestack-ui/themed';
 import {config} from '../../../config/gluestack-ui.config'
 import {Animated, Pressable} from "react-native";
@@ -39,20 +39,34 @@ const textStyles = {
     color: colors.white,
     marginRight:25,
 };
-export const Home = ({navigation}:any) => (
+export const Home = ({navigation,route}:any) => {
+    useEffect(() => {
+        console.log('Dane otrzymane w Home:', route.params.name);
+        const user = route.params?.user;
+        console.log('Imię użytkownika:', user.name);
+        console.log('Miasto użytkownika:', user?.city);
+        console.log('Liczba opinii użytkownika:', user?.reviews);
+        console.log('Zdjęcie użytkownika:', user?.photo);
+    }, [route.params]);
+    const { user } = route.params;
+
+    console.log('Dane otrzymane w Home:', route.params.user.name);
+    return(
     <View flex={1} marginVertical={15}>
-        <View marginBottom={15} backgroundColor={colors.background} height={170} borderRadius={40} flexWrap={'wrap'} alignItems={'center'} justifyContent={'center'} >
+        <View marginBottom={15} backgroundColor={colors.background} height={170} borderRadius={40} flexWrap={'wrap'}
+              alignItems={'center'} justifyContent={'center'}>
             {/* Imie pobierane z konta */}
-            <Text style={textStyles}>Cześć Igor</Text>
+            <Text style={textStyles}>Cześć {user?.name}</Text>
             {/* Miasto pobierane z lokalizacji */}
-            <Text style={textStyles}>Kielce</Text>
+            <Text style={textStyles}>{user?.city}</Text>
             {/* Liczba opinii to zmienna pobierana*/}
             <Text style={textStyles}>Liczba twoich opini to: 2137</Text>
-            <Image alt={'logo'} style={{height:135,width:120,marginLeft:90,borderRadius:30}} source={require('../../assets/users/user1.png')}></Image>
+            <Image alt={'logo'} style={{height: 135, width: 120, marginLeft: 90, borderRadius: 30}}
+                   source={require('../../assets/users/user1.png')}></Image>
         </View>
-        <View backgroundColor={colors.background} flex={1} borderRadius={40} >
+        <View backgroundColor={colors.background} flex={1} borderRadius={40}>
             <View alignItems={'center'}>
-                <Text style={{fontSize:24,color:colors.white, marginTop:25}}>Najlepiej oceniane</Text>
+                <Text style={{fontSize: 24, color: colors.white, marginTop: 25}}>Najlepiej oceniane</Text>
             </View>
             <View>
                 <FlatList
@@ -63,6 +77,7 @@ export const Home = ({navigation}:any) => (
             </View>
         </View>
     </View>
-);
+    )
+};
 
 export default Home

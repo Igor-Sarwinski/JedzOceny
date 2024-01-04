@@ -6,13 +6,49 @@ import {config} from "../../../config/gluestack-ui.config";
 const { colors } = config.tokens;
 
 export const Login = ({navigation}:any) => {
-    const [email, setEmail] = useState('');
+    //    const handleLogin = () => {
+    //     if (email === password) {
+    //         navigation.navigate('DrawerNavigation');
+    //     } else {
+    //         alert('Nieprawidłowy login lub hasło');
+    //     }
+    // };
+
+    const [login, setLogin] = useState('');
     const [password, setPassword] = useState('');
-    const handleLogin = () => {
-        if (email === password) {
-            navigation.navigate('DrawerNavigation');
-        } else {
-            alert('Nieprawidłowy login lub hasło');
+
+    const handleLogin = async () => {
+        try {
+            const response = await fetch('http://172.20.10.4:3000/users', {
+                method: 'GET',
+            });
+
+            const textResponse = await response.text();
+            console.log('Response from server:', textResponse);
+
+            const clonedResponse = response.clone();
+
+            const data = await clonedResponse.json();
+
+            if (Array.isArray(data) && data.length > 0) {
+                const user = data.find((user) => user.login === login && user.password === password);
+
+                if (user) {
+                    console.log('User przed nawigacją:', user);
+                    navigation.navigate('DrawerNavigation', {
+                        screen: 'HomeNavigation',
+                        params: { user: user },
+                    });
+                } else {
+                    alert('Nieprawidłowy login lub hasło');
+                }
+
+            } else {
+                console.error('Nieprawidłowy format danych z serwera:', data);
+                alert('Wystąpił problem z formatem danych z serwera');
+            }
+        } catch (error) {
+            console.error('Błąd logowania:', error);
         }
     };
 
@@ -25,8 +61,8 @@ export const Login = ({navigation}:any) => {
                         style={styles.input}
                         placeholder="Email"
                         placeholderTextColor={'#fff'}
-                        value={email}
-                        onChangeText={(text) => setEmail(text)}
+                        value={login}
+                        onChangeText={(text) => setLogin(text)}
                     />
                     <TextInput
                         style={styles.input}
