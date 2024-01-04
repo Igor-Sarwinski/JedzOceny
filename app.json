@@ -16,7 +16,10 @@
     ],
     "ios": {
       "supportsTablet": true,
-      "bundleIdentifier": "com.anonymous.expo-app"
+      "bundleIdentifier": "com.anonymous.expo-app",
+      "infoPlist": {
+        "NSCameraUsageDescription": "We need access to your camera"
+      }
     },
     "android": {
       "adaptiveIcon": {
