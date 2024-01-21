@@ -1,23 +1,60 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {Box, Text, Pressable, Image} from '@gluestack-ui/themed';
 import {config} from "../../../config/gluestack-ui.config";
 import {Animated, ScrollView, TextInput, View} from "react-native";
 import FlatList = Animated.FlatList;
 import { styles } from './styles';
+import addPlace from "./AddPlace";
 const { colors } = config.tokens;
+import {settings} from "../../config/settings";
+
 export const Places = ({navigation}:any) => {
     const [list, setList] = useState([]);
-    const reviews = 1;
-    const value = 3;
-    const distance = 2;
-    const handleAddItem = (newItem: any) => {
-        // @ts-ignore
-        setList([...list, newItem]);
+    const [loading, setLoading] = useState(true);
+    const ip = settings.ip;
+    // Funkcja do pobierania danych z bazy danych JSON
+    const fetchPlaces = async () => {
+        try {
+            const response = await fetch('http://'+ ip +':3000/places');
+            const data = await response.json();
+            setList(data);
+            setLoading(false);
+        } catch (error) {
+            console.error('Błąd podczas pobierania danych:', error);
+            setLoading(false);
+        }
     };
+    const addPlace = async (newPlace: any) => {
+        try {
+            const response = await fetch('http://10.100.1.14:3000/places', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(newPlace),
+            });
+
+            if (response.ok) {
+                // Pobranie zaktualizowanej listy miejsc po dodaniu nowego
+                fetchPlaces();
+            } else {
+                console.error('Błąd podczas dodawania miejsca');
+            }
+        } catch (error) {
+            console.error('Błąd podczas dodawania miejsca:', error);
+        }
+    };
+
     const handleAddReview = (newItem: any) => {
         // @ts-ignore
         setList([...listReview, newItem]);
     };
+
+    useEffect(() => {
+        fetchPlaces();
+    }, []); // useEffect zostanie uruchomiony tylko raz po zamontowaniu komponentu
+
+
     const renderItem = ({ item,index,navigation}:any) => (
         <View  style={{ flexDirection:'row' , justifyContent: 'center', alignItems: 'center',marginTop:0}}>
             <View style={styles.card}>
@@ -45,6 +82,13 @@ export const Places = ({navigation}:any) => {
 
     const [nazwa, setNazwa] = useState('');
 
+    if (loading) {
+        return (
+            <Box flex={1} justifyContent="center" alignItems="center">
+                <Text>Ładowanie danych...</Text>
+            </Box>
+        );
+    }
     return (
         <Box flex={1} justifyContent="center" alignItems="center" marginVertical={15} borderRadius={55}
              backgroundColor={colors.background}>
@@ -62,7 +106,7 @@ export const Places = ({navigation}:any) => {
                 />
                 <Pressable
                     style={styles.button}
-                    onPress={ () => navigation.push('Dodaj restaurację',{ addItem: handleAddItem })}
+                    onPress={ () => navigation.push('Dodaj restaurację',{ addItem: addPlace })}
                 >
                     <Text style={styles.button.text}>Dodaj restauracje</Text>
                 </Pressable>

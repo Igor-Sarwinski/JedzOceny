@@ -1,19 +1,70 @@
 {
-  "users":
-  [
-    { "id": 1, "name": "igor", "surname": "admin","login": "admin","password": "admin","reviews": 1,"photo":"src/assets/user/user1.png" },
-    { "id": 2, "name": "Pawel", "surname": "admin2","login": "admin2","password": "admin2","reviews": 2,"photo":"src/assets/user/user1.png" }
+  "users": [
+    {
+      "id": 1,
+      "name": "Igor",
+      "surname": "admin",
+      "login": "Admin",
+      "password": "admin",
+      "reviews": 1,
+      "photo": "/user1.png"
+    },
+    {
+      "id": 2,
+      "name": "Pawel",
+      "surname": "admin2",
+      "login": "admin2",
+      "password": "admin2",
+      "reviews": 35,
+      "photo": "src/assets/user/user1.png"
+    }
   ],
-  "places":
-  [
-    { "id": 1, "name": "Astana kebab", "city": "Kielce","street": "Paderewsiekigo 15","hours": "7-19", "tel": 660654234, "reviews": 2,"avgReview":4.5, "photo": "src/assets/places/places1.png" },
-    { "id": 2, "name": "McDonalds", "city": "Kielce","street": "Wojska polskiego 1","hours": "6-5", "tel": 660323523, "reviews": 5,"avgReview":3.5, "photo": "src/assets/places/places1.png" }
-
+  "places": [
+    {
+      "id": 1,
+      "name": "Astana kebab",
+      "city": "Kielce",
+      "street": "Paderewsiekigo 15",
+      "hours": "7-19",
+      "tel": 660654234,
+      "reviews": 2,
+      "avgReview": 4.5,
+      "photo": "src/assets/places/places1.png"
+    },
+    {
+      "id": 2,
+      "name": "McDonalds",
+      "city": "Kielce",
+      "street": "Wojska polskiego 1",
+      "hours": "6-5",
+      "tel": 660323523,
+      "reviews": 5,
+      "avgReview": 3.5,
+      "photo": "src/assets/places/places1.png"
+    },
+    {
+      "name": "Test",
+      "city": "Best",
+      "street": "Sąsiad",
+      "hours": "1",
+      "phone": "123",
+      "id": 3
+    }
   ],
-  "reviews":
-  [
-    { "id":1 ,"idUser":1 ,"idPlace": 1,"content": "ta knajpa jest zajebista", "score": 4.5 },
-    { "id":2 ,"idUser":2 ,"idPlace": 1,"content": "super miejsce 2/10", "score": 2.5 }
-
+  "reviews": [
+    {
+      "id": 1,
+      "idUser": 1,
+      "idPlace": 1,
+      "content": "ta knajpa jest zajebista",
+      "score": 4.5
+    },
+    {
+      "id": 2,
+      "idUser": 2,
+      "idPlace": 1,
+      "content": "super miejsce 2/10",
+      "score": 2.5
+    }
   ]
 }
