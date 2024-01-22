@@ -24,9 +24,9 @@ export const Register = ({navigation}: any) => {
                     surname: surname,
                     mail: email,
                     password: password,
-                    photo: 'src/assets/user/user1.png', // You may want to handle photo separately
-                    reviews: 0, // Set initial reviews count
-                    login: login, // Assuming login is a combination of name and surname
+                    photo: 'src/assets/user/user1.png',
+                    reviews: 0,
+                    login: login,
                 }),
             });
 

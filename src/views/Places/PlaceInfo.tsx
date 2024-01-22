@@ -1,20 +1,48 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import { Box, Text } from '@gluestack-ui/themed';
 import {Image, Pressable, TextInput, View} from "react-native";
 import {styles} from "./styles";
 import {config} from "../../../config/gluestack-ui.config";
+import {settings} from "../../config/settings";
 const { colors } = config.tokens;
 
-export const PlaceInfo = ({navigation}:any) => {
-    const [place, setUser] = useState({
-        name: 'Astana',
-        address:'ul. Paderewskiego 1',
-        city:'Kielce',
-        hrs:'10:00-11:00',
-        tel:'123 456 789',
+export const PlaceInfo = ({route, navigation}: any) => {
+    const { placeId } = route.params;
+
+    const [place, setPlace] = useState({
+        name: '',
+        street: '',
+        city: '',
+        hours: '',
+        tel: '',
         logo: require('../../assets/users/user1.png')
     });
 
+    useEffect(() => {
+        // Fetch place information based on the received placeId
+        const fetchPlaceInfo = async () => {
+            try {
+                const response = await fetch('http://'+ settings.ip +':3000/places/'+ placeId);
+                if (response.ok) {
+                    const placeData = await response.json();
+                    setPlace({
+                        name: placeData.name,
+                        street: placeData.street,
+                        city: placeData.city,
+                        hours: placeData.hours,
+                        tel: placeData.tel,
+                        logo: placeData.logo
+                    });
+                } else {
+                    console.error('Failed to fetch place information');
+                }
+            } catch (error) {
+                console.error('Error during place information fetch:', error);
+            }
+        };
+
+        fetchPlaceInfo();
+    }, [placeId]);
 
 
     return (
@@ -27,9 +55,9 @@ export const PlaceInfo = ({navigation}:any) => {
                 </View >
                 <Text style={{color:colors.white,textAlign:'center',fontSize:20}}> {place.name}</Text>
                 <View >
-                    <Text style={styles.area}>{place.address}</Text>
+                    <Text style={styles.area}>{place.street}</Text>
                     <Text style={styles.area}>{place.city}</Text>
-                    <Text style={styles.area}>{place.hrs}</Text>
+                    <Text style={styles.area}>{place.hours}</Text>
                     <Text style={styles.area}>{place.tel}</Text>
                 </View>
 

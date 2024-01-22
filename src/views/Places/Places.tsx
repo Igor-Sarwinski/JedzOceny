@@ -58,7 +58,7 @@ export const Places = ({navigation}:any) => {
         <View  style={{ flexDirection:'row' , justifyContent: 'center', alignItems: 'center',marginTop:0}}>
             <View style={styles.card}>
                 <View style={{width:'45%', marginLeft:'5%'}}>
-                    <Pressable onPress={()=> navigation.push("Informacje o restauracji")}>
+                    <Pressable onPress={() => navigation.push("Informacje o restauracji", { placeId: item.id })}>
                    <Image alt={'logo'} source={require("../../assets/logo.png")} style={styles.card.logo} />
                 </Pressable>
                 </View>
