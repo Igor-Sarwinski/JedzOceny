@@ -13,7 +13,9 @@ const tabOptions ={
 }
 
 // @ts-ignore
-export function HomeNavigation ({navigation})  {
+export function HomeNavigation({ navigation, route }: any) {
+    console.log('Przekazane parametry HomeNavigation:', route.params);
+    const user = route.params?.user;
     return (
         <Tab.Navigator
 
@@ -22,6 +24,7 @@ export function HomeNavigation ({navigation})  {
         >
             <Tab.Screen
                 name="Home"
+                initialParams={{user: user}}
                 component={Home}
                 options={{
                     title: 'Strona główna',

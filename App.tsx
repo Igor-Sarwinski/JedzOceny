@@ -4,10 +4,13 @@ import {config} from './config/gluestack-ui.config'
 import {GluestackUIProvider} from "@gluestack-ui/themed";
 import {StackNavigation} from "./src/navigation/StackNavigation";
 import {UserProvider} from "./src/context/UserContext";
+import { LogBox } from 'react-native';
 
-
+// Ignoruj wszystkie ostrzeżenia
+LogBox.ignoreAllLogs();
 function App() {
     return (
+
         <UserProvider>
         <GluestackUIProvider config={config}>
 

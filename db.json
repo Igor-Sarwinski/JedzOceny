@@ -1,13 +1,14 @@
 {
   "users": [
     {
-      "id": 1,
-      "name": "Igor",
+      "name": "Igor23344",
       "surname": "admin",
-      "login": "Admin",
+      "mail": "igor.s@onet.pl",
       "password": "admin",
+      "photo": "src/assets/user/user1.png",
       "reviews": 1,
-      "photo": "/user1.png"
+      "login": "Admin",
+      "id": 1
     },
     {
       "id": 2,
@@ -17,6 +18,16 @@
       "password": "admin2",
       "reviews": 35,
       "photo": "src/assets/user/user1.png"
+    },
+    {
+      "name": "sadasd",
+      "surname": "asdasda",
+      "mail": "sdasdsad",
+      "password": "test",
+      "photo": "src/assets/user/user1.png",
+      "reviews": 0,
+      "login": "Test",
+      "id": 3
     }
   ],
   "places": [
@@ -49,6 +60,22 @@
       "hours": "1",
       "phone": "123",
       "id": 3
+    },
+    {
+      "name": "Test",
+      "city": "Test",
+      "street": "Test",
+      "hours": "Test",
+      "phone": "tsts",
+      "id": 4
+    },
+    {
+      "name": "",
+      "city": "",
+      "street": "",
+      "hours": "",
+      "phone": "",
+      "id": 5
     }
   ],
   "reviews": [

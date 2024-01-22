@@ -1,5 +1,5 @@
 export const settings = {
-    ip: '10.100.1.14',
+    ip: '192.168.0.108',
     userId: 1,
 };
 

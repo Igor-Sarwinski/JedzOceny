@@ -8,13 +8,6 @@ import {settings} from "../../config/settings";
 import {useUser} from "../../context/UserContext"
 
 export const Login = ({navigation}:any) => {
-    //    const handleLogin = () => {
-    //     if (email === password) {
-    //         navigation.navigate('DrawerNavigation')
-    //     } else {
-    //         alert('Nieprawidłowy login lub hasło');
-    //     }
-    // };
     const { userId, updateUser } = useUser();
     const [login, setLogin] = useState('');
     const [password, setPassword] = useState('');
@@ -62,7 +55,7 @@ export const Login = ({navigation}:any) => {
                 <Image style={{width:133,height:145,alignSelf:'center', marginVertical:35}} source={require("../../assets/logo.png")}></Image>
                 <TextInput
                     style={styles.input}
-                    placeholder="Email"
+                    placeholder="Login"
                     placeholderTextColor={'#fff'}
                     value={login}
                     onChangeText={(text) => setLogin(text)}

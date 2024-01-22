@@ -1,28 +1,49 @@
-import React, {useState} from 'react';
-import {Box, Text, Pressable, Image} from '@gluestack-ui/themed';
-import {View, TextInput} from 'react-native';
-import {config} from "../../../config/gluestack-ui.config";
+import React, { useState } from 'react';
+import { Box, Text, Pressable, Image } from '@gluestack-ui/themed';
+import { View, TextInput } from 'react-native';
+import { config } from "../../../config/gluestack-ui.config";
 import { styles } from './styles';
+import {settings} from "../../config/settings"
+
 const { colors } = config.tokens;
+
 export const EditProfile = ({ navigation, route }: any) => {
     const [name, setName] = useState(route.params?.editItem?.name || '');
     const [surname, setSurname] = useState(route.params?.editItem?.surname || '');
     const [mail, setMail] = useState(route.params?.editItem?.mail || '');
     const [password, setPassword] = useState(route.params?.editItem?.password || '');
+    const [photo, setPhoto] = useState(route.params?.editItem?.photo || '');
+    const [reviews, setReviews] = useState(route.params?.editItem?.reviews || 0);
+    const [login, setLogin] = useState(route.params?.editItem?.login || '');
 
-    const handleEditProfile = () => {
+    const handleEditProfile = async () => {
         const editedItem = {
             name: name,
             surname: surname,
             mail: mail,
             password: password,
+            photo: photo,
+            reviews: reviews,
+            login: login,
         };
-        route.params.handleEditProfile(editedItem);
 
-        navigation.goBack();
-    };
+        // Aktualizacja danych w bazie
+        const response = await fetch(`http://${settings.ip}:3000/users/${route.params.editItem.id}`, {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(editedItem),
+        });
 
-    const handleAddPhoto = () => {
+        if (response.ok) {
+            // Jeśli aktualizacja zakończyła się sukcesem, przejście do poprzedniego ekranu
+            route.params.handleEditProfile(editedItem);
+            navigation.goBack();
+        } else {
+            // Obsługa błędów (możesz dostosować odpowiednio do swoich potrzeb)
+            console.error('Błąd aktualizacji danych w bazie');
+        }
     };
 
     return (
@@ -67,11 +88,6 @@ export const EditProfile = ({ navigation, route }: any) => {
             <View style={{ marginLeft:'5%',alignSelf:'center',marginVertical:30, flexDirection:'row'}}>
                 <Pressable style={{...styles.button, marginTop:15,marginRight:20}} onPress={handleEditProfile}  >
                     <Text style={styles.button.text}>Zapisz</Text>
-                </Pressable>
-
-
-                <Pressable style={{...styles.button, marginTop:15,marginLeft:20}} onPress={handleAddPhoto}  >
-                    <Text style={styles.button.text}>Edytuj zdjęcie</Text>
                 </Pressable>
             </View>
         </View>

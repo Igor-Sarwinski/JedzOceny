@@ -4,7 +4,6 @@ import {config} from "../../../config/gluestack-ui.config";
 import {Animated, ScrollView, TextInput, View} from "react-native";
 import FlatList = Animated.FlatList;
 import { styles } from './styles';
-import addPlace from "./AddPlace";
 const { colors } = config.tokens;
 import {settings} from "../../config/settings";
 
@@ -26,7 +25,7 @@ export const Places = ({navigation}:any) => {
     };
     const addPlace = async (newPlace: any) => {
         try {
-            const response = await fetch('http://10.100.1.14:3000/places', {
+            const response = await fetch('http://'+ ip +':3000/places', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -70,7 +69,6 @@ export const Places = ({navigation}:any) => {
                         <Text style={styles.text}>{item.name}</Text>
                         <Text style={styles.text}>Ocena: {item.value} /5</Text>
                         <Text style={styles.text}>Liczba opini: {item.reviews}</Text>
-                        <Text style={styles.text}>Do celu: {item.distance} km</Text>
                     </View>
                     <Pressable style={styles.button} onPress={() => navigation.push('Dodaj opinię', { addItem: handleAddReview })}>
                         <Text style={styles.button.text} >Dodaj opinię</Text>
@@ -93,17 +91,10 @@ export const Places = ({navigation}:any) => {
         <Box flex={1} justifyContent="center" alignItems="center" marginVertical={15} borderRadius={55}
              backgroundColor={colors.background}>
 <Pressable>
-            <View style={{flexDirection: 'row', alignItems: 'center', width:"90%",marginTop:60}}>
-                <TextInput
-                    style={styles.search}
-                    placeholder="Szukaj"
-                    placeholderTextColor={colors.white}
-                    value={nazwa}
-                    onChangeText={(text) => setNazwa(text)}
-                    onSubmitEditing={() => {
-                        console.log('Wprowadzona wartość:', nazwa);
-                    }}
-                />
+            <View style={{flexDirection: 'row', alignItems: 'right', width:"50%",marginTop:60}}>
+            <View style={{width:'100%'}}>
+
+            </View>
                 <Pressable
                     style={styles.button}
                     onPress={ () => navigation.push('Dodaj restaurację',{ addItem: addPlace })}
@@ -113,13 +104,13 @@ export const Places = ({navigation}:any) => {
 
             </View>
             <View style={{marginTop:10,marginBottom:205}}>
-                <View>
+                <ScrollView>
                     <FlatList
                         data={list}
                         renderItem={({ item, index }) => renderItem({ item, index, navigation })}
                         keyExtractor={(item, index) => index.toString()}
                     />
-                </View>
+                </ScrollView>
 
             </View>
 </Pressable>

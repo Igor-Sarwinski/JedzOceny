@@ -3,26 +3,59 @@ import { Box, Text } from '@gluestack-ui/themed';
 import {Image, Pressable, TextInput, View} from "react-native";
 import {styles} from "./styles";
 import {config} from "../../../config/gluestack-ui.config";
+import {settings} from "../../config/settings";
 const { colors } = config.tokens;
 
-export const Register = ({navigation}:any) => {
+export const Register = ({navigation}: any) => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [name, setName] = useState('');
     const [surname, setSurname] = useState('');
-    const handleLogin = () => {
-        if (email === password) {
-            navigation.navigate('DrawerNavigation');
-        } else {
-            alert('Nieprawidłowy login lub hasło');
+    const [login, setLogin] = useState('');
+    const handleRegister = async () => {
+        try {
+            const response = await fetch('http://' + settings.ip + ':3000/users', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    name: name,
+                    surname: surname,
+                    mail: email,
+                    password: password,
+                    photo: 'src/assets/user/user1.png', // You may want to handle photo separately
+                    reviews: 0, // Set initial reviews count
+                    login: login, // Assuming login is a combination of name and surname
+                }),
+            });
+
+            if (response.ok) {
+                // Registration successful, you can navigate or handle it accordingly
+                navigation.goBack();
+            } else {
+                // Registration failed, handle error
+                alert('Registration failed. Please try again.');
+            }
+        } catch (error) {
+            console.error('Error during registration:', error);
+            alert('An error occurred during registration. Please try again.');
         }
     };
+
 
     return (
         <Box flex={1} alignItems="center" marginVertical={15} borderRadius={55}
              backgroundColor={colors.background}>
             <View style={{width:'60%'}}>
                 <Image style={{width:133,height:145,alignSelf:'center', marginVertical:35}} source={require("../../assets/logo.png")}></Image>
+                <TextInput
+                    style={styles.input}
+                    placeholder="Login"
+                    placeholderTextColor={'#fff'}
+                    value={login}
+                    onChangeText={(text) => setLogin(text)}
+                />
                 <TextInput
                     style={styles.input}
                     placeholder="Imię"
@@ -53,7 +86,7 @@ export const Register = ({navigation}:any) => {
                     value={password}
                     onChangeText={(text) => setPassword(text)}
                 />
-                <Pressable style={{...styles.button, marginTop:50}} onPress={() => navigation.goBack()}>
+                <Pressable style={{ ...styles.button, marginTop: 50 }} onPress={handleRegister}>
                     <Text style={styles.button.text} >Zarejestruj się</Text>
                 </Pressable>
             </View>
