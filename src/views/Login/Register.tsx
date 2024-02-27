@@ -29,7 +29,7 @@ export const Register = ({navigation}: any) => {
                     login: login,
                 }),
             });
-
+            console.log(response)
             if (response.ok) {
                 // Registration successful, you can navigate or handle it accordingly
                 navigation.goBack();

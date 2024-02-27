@@ -60,6 +60,7 @@ export const Home = ({ navigation }: any) => {
             }
 
             let location = await Location.getCurrentPositionAsync({});
+            console.log("lokazliacja:",location)
             return location.coords;
         } catch (error) {
             console.error('Error getting location:', error);

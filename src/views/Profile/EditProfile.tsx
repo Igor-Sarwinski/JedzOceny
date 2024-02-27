@@ -35,6 +35,7 @@ export const EditProfile = ({ navigation, route }: any) => {
             },
             body: JSON.stringify(editedItem),
         });
+        console.log(response)
 
         if (response.ok) {
             // Jeśli aktualizacja zakończyła się sukcesem, przejście do poprzedniego ekranu

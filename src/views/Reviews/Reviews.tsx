@@ -69,18 +69,6 @@ export const Reviews = ({navigation,route}:any) => {
         <Box flex={1} justifyContent="center" alignItems="center" marginVertical={15} borderRadius={55}
              backgroundColor={colors.background}>
 
-            <View style={{flexDirection: 'row', alignItems: 'center', width:"90%",marginTop:60}}>
-                <TextInput
-                    style={styles.search}
-                    placeholder="Szukaj"
-                    placeholderTextColor={colors.white}
-                    value={nazwa}
-                    onChangeText={(text) => setNazwa(text)}
-                    onSubmitEditing={() => {
-                        console.log('Wprowadzona wartość:', nazwa);
-                    }}
-                />
-            </View>
             <View>
                 <View style={{marginTop:10,marginBottom:80}}>
                     <FlatList

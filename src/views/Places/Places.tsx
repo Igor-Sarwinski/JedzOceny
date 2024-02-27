@@ -90,9 +90,8 @@ export const Places = ({navigation}:any) => {
     return (
         <Box flex={1} justifyContent="center" alignItems="center" marginVertical={15} borderRadius={55}
              backgroundColor={colors.background}>
-<Pressable>
-            <View style={{flexDirection: 'row', alignItems: 'right', width:"50%",marginTop:60}}>
-            <View style={{width:'100%'}}>
+            <View style={{flexDirection: 'row', alignItems: 'center', width:"50%",marginTop:60}}>
+            <View style={{width:'50%'}}>
 
             </View>
                 <Pressable
@@ -103,17 +102,16 @@ export const Places = ({navigation}:any) => {
                 </Pressable>
 
             </View>
-            <View style={{marginTop:10,marginBottom:205}}>
-                <ScrollView>
+            <View style={{marginTop:10,marginBottom:80}}>
+                <View>
                     <FlatList
                         data={list}
                         renderItem={({ item, index }) => renderItem({ item, index, navigation })}
                         keyExtractor={(item, index) => index.toString()}
                     />
-                </ScrollView>
+                </View>
 
             </View>
-</Pressable>
         </Box>
     );
 };

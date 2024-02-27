@@ -28,6 +28,36 @@
       "reviews": 0,
       "login": "Test",
       "id": 3
+    },
+    {
+      "name": "Asdsad",
+      "surname": "asdsad",
+      "mail": "Aasad",
+      "password": "asdasd",
+      "photo": "src/assets/user/user1.png",
+      "reviews": 0,
+      "login": "Sasha’s",
+      "id": 4
+    },
+    {
+      "name": "Adsa",
+      "surname": "asdasd",
+      "mail": "Adad",
+      "password": "asdsa",
+      "photo": "src/assets/user/user1.png",
+      "reviews": 0,
+      "login": "Asdd",
+      "id": 5
+    },
+    {
+      "name": "Ifoe",
+      "surname": "Nękaj",
+      "mail": "Igorss@onet.pl",
+      "password": "testowy",
+      "photo": "src/assets/user/user1.png",
+      "reviews": 0,
+      "login": "Testowy",
+      "id": 6
     }
   ],
   "places": [
@@ -76,6 +106,22 @@
       "hours": "",
       "phone": "",
       "id": 5
+    },
+    {
+      "name": "",
+      "city": "",
+      "street": "",
+      "hours": "",
+      "phone": "",
+      "id": 6
+    },
+    {
+      "name": "Ussu",
+      "city": "Jdsks",
+      "street": "Disk",
+      "hours": "",
+      "phone": "",
+      "id": 7
     }
   ],
   "reviews": [
@@ -83,7 +129,7 @@
       "id": 1,
       "idUser": 1,
       "idPlace": 1,
-      "content": "ta knajpa jest super",
+      "content": "ta knajpa jest zajebista",
       "score": 4.5
     },
     {

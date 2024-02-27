@@ -6,7 +6,6 @@ import {StackNavigation} from "./src/navigation/StackNavigation";
 import {UserProvider} from "./src/context/UserContext";
 import { LogBox } from 'react-native';
 
-// Ignoruj wszystkie ostrzeżenia
 LogBox.ignoreAllLogs();
 function App() {
     return (
